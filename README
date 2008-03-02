@@ -1,0 +1,209 @@
+Name
+    Data::Validation - Check data values form conformance with constraints
+
+Version
+    0.1.$Rev: 13 $
+
+Synopsis
+       use Data::Validation;
+
+       sub check_field {
+          my ($me, $stash, $id, $val) = @_;
+
+          return Data::Validation->check_field( $me, $stash->{fields}, @id, $val );
+       }
+
+       sub check_form  {
+          my ($me, $stash, $values) = @_;
+
+          return Data::Validation->check_form( $me,
+                                               $stash->{fields},
+                                               $stash->{method_name}.q(_),
+                                               $values );
+       }
+
+Description
+    This module implements common constraints in builtin methods and uses a
+    factory pattern to implement an extensible list of external constraints.
+
+Configuration and Environment
+    The "$stash->{fields}" hash is passed to both "check_field" and
+    "check_form" and is used to instantiate each validation object. The
+    configuration keys are:
+
+    validate
+       Space separated list of validation method names. Each method must
+       return true for the value to be accepted
+
+    max_length
+       Used by "isValidLength". The "length" of the supplied value must be
+       numerically less than this
+
+    max_value
+       Used by "isBetweenValues".
+
+    min_length
+       Used by "isValidLength".
+
+    min_value
+       Used by "isBetweenValues".
+
+    required
+       If true then null values are not allowed regardless of what other
+       validation would be done
+
+    pattern
+       Used by "isMathchingRegex" as the pattern to match the supplied value
+       against. This is set by some of the builtin validation methods that
+       then call "isMathchingRegex" to perform the actual validation
+
+    value
+       Used by the "isEqualTo" method as the other value in the comparison
+
+Subroutines/Methods
+  new
+    The constructor is called by "check_field" so you don't have to. If
+    necessary it "require"s a factory subclass and calls it's "_init"
+    method. Any additional attributes added to $self will have accessors and
+    mutators created for them
+
+  check_field
+       Data::Validation->check_field( $error_ref, $fields, $id, $value );
+
+    Checks one value for conformance. The $id is used as a key to the
+    $fields hash whose validate attribute contains the list of space
+    separated constraint names. The value is tested against each constraint
+    in turn. All tests must pass or the subroutine will use the $error_ref
+    object to "throw" an error.
+
+  check_form
+       Data::Validation->check_form( $error_ref, $fields, $prefix, $values );
+
+    Calls "check_field" for each of the keys in the $values hash. In the
+    calls to "check_field" the $values key has the $prefix prepended to form
+    the key to the $fields hash.
+
+  validate
+    Called by "check_field" this method implements tests for a null input
+    value so that individual validation methods don't have to. It calls
+    either a built in validation method or "_validate" which should have
+    been overridden in a factory subclass
+
+  isBetweenValues
+    Test to see if the supplied value is numerically greater than
+    "$me->min_value" and less than "$me->max_value"
+
+  isEqualTo
+    Test to see if the supplied value is equal to "$me->value". Calls
+    "isValidNumber" on both values to determine the type of comparison to
+    perform
+
+  isMandatory
+    Null values are not allowed
+
+  isMatchingRegex
+    Does the supplied value match "$me->pattern"?
+
+  isPrintable
+    Is the supplied value entirely composed of printable characters?
+
+  isSimpleText
+    Simple text is defined as matching the pattern '\A [a-zA-Z0-9_ \-\.]+
+    \z'
+
+  isValidHostname
+    Calls "gethostbyname" on the supplied value
+
+  isValidIdentifier
+    Identifiers must match the pattern '\A [a-zA-Z_] \w* \z'
+
+  isValidInteger
+    Tests to see if the supplied value is an integer
+
+  isValidLength
+    Tests to see if the length of the supplied value is greater than
+    "$me->min_length" and less than "$me->max_length"
+
+  isValidNumber
+    Return true if the supplied value "looks_like_number"
+
+  _carp
+    Call "Carp::carp" but delay loading module
+
+  _croak
+    Call "Carp::croak" but delay loading module
+
+  _init
+    Must return the self referential object. Allows factory subclasses to
+    declare their own attributes whilst still having the factory create
+    accessors and mutators
+
+  _validate
+    Should have been overridden in a factory subclass
+
+  _will
+    Tests to see if the given method is a defined subroutine
+
+External Constraints
+    Each of these factory subclasses implement the required "_validate"
+    method and optionally implements the "_init" method
+
+  Date
+    If the "str2time" method in the CatalystX::Usul::Class::Time module can
+    parse the supplied value then it is deemed to be a valid date
+
+  Email
+    If the "address" method in the Email::Valid module can parse the
+    supplied value then it is deemed to be a valid email address
+
+  Password
+    Currently implements a minimum password length of six characters and
+    that the password contain at least one non alphabetic character
+
+  Path
+    Screen out these characters: ; & * { } and space
+
+  Postcode
+    Tests to see if the supplied value matches one of the approved patterns
+    for a valid postcode
+
+  URL
+    Call the "request" method in LWP::UserAgent to test if a URL is
+    accessible
+
+Diagnostics
+    Carps warnings about unknown or bad validation methods
+
+Dependencies
+    charnames
+    Class::Accessor::Fast
+    Class::Null
+    Email::Valid
+    Exception::Class
+    LWP::UserAgent
+    Readonly
+    Regexp::Common
+    Scalar::Util
+
+Incompatibilities
+    There are no known incompatibilities in this module.
+
+Bugs and Limitations
+    The Data::Validation::Date module requires the as yet unpublished module
+    CatalystX::Usul::Class::Time
+
+    Please report problems to the address below. Patches are welcome.
+
+Author
+    Peter Flanigan, "<Support at RoxSoft.co.uk>"
+
+License and Copyright
+    Copyright (c) 2007 Peter Flanigan. All rights reserved.
+
+    This program is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself. See perlartistic.
+
+    This program is distributed in the hope that it will be useful, but
+    WITHOUT WARRANTY; without even the implied warranty of MERCHANTABILITY
+    or FITNESS FOR A PARTICULAR PURPOSE.
+

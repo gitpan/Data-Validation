@@ -1,0 +1,48 @@
+---
+name: Data-Validation
+version: 0.1.13
+author:
+  - 'Peter Flanigan, C<< <Support at RoxSoft.co.uk> >>'
+abstract: Check data values form conformance with constraints
+license: perl
+resources:
+  license: http://dev.perl.org/licenses/
+requires:
+  Class::Accessor::Fast: 0.31
+  Class::Null: 1.09
+  Email::Valid: 0.179
+  Exception::Class: 1.23
+  File::Spec::Functions: 1.3
+  LWP::UserAgent: 2.036
+  Readonly: 1.03
+  Regexp::Common: 2.120
+  Scalar::Util: 1.19
+  charnames: 1.05
+  perl: 5.8
+  version: 0.74
+provides:
+  Data::Validation:
+    file: lib/Data/Validation.pm
+    version: 0.1.13
+  Data::Validation::Date:
+    file: lib/Data/Validation/Date.pm
+    version: 0.1.9
+  Data::Validation::Email:
+    file: lib/Data/Validation/Email.pm
+    version: 0.1.9
+  Data::Validation::Password:
+    file: lib/Data/Validation/Password.pm
+    version: 0.1.13
+  Data::Validation::Path:
+    file: lib/Data/Validation/Path.pm
+    version: 0.1.9
+  Data::Validation::Postcode:
+    file: lib/Data/Validation/Postcode.pm
+    version: 0.1.9
+  Data::Validation::URL:
+    file: lib/Data/Validation/URL.pm
+    version: 0.1.9
+generated_by: Module::Build version 0.2808
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.2.html
+  version: 1.2
