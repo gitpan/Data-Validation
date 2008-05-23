@@ -2,7 +2,7 @@ Name
     Data::Validation - Check data values form conformance with constraints
 
 Version
-    0.1.$Rev: 13 $
+    0.1.$Rev: 16 $
 
 Synopsis
        use Data::Validation;
@@ -189,6 +189,9 @@ Incompatibilities
     There are no known incompatibilities in this module.
 
 Bugs and Limitations
+    There is no POD coverage test because the subclases docs are in here
+    instead
+
     The Data::Validation::Date module requires the as yet unpublished module
     CatalystX::Usul::Class::Time
 

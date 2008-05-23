@@ -1,6 +1,6 @@
 package Data::Validation;
 
-# @(#)$Id: Validation.pm 13 2008-03-02 17:40:13Z pjf $
+# @(#)$Id: Validation.pm 16 2008-05-23 21:04:53Z pjf $
 
 use strict;
 use warnings;
@@ -12,7 +12,7 @@ use Readonly;
 use Regexp::Common qw(number);
 use Scalar::Util   qw(looks_like_number);
 
-use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 13 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 16 $ =~ /\d+/gmx );
 
 Readonly my %ATTRS => ( max_length => undef,
                         max_value  => undef,
@@ -235,7 +235,7 @@ Data::Validation - Check data values form conformance with constraints
 
 =head1 Version
 
-0.1.$Rev: 13 $
+0.1.$Rev: 16 $
 
 =head1 Synopsis
 
@@ -480,6 +480,8 @@ Carps warnings about unknown or bad validation methods
 There are no known incompatibilities in this module.
 
 =head1 Bugs and Limitations
+
+There is no POD coverage test because the subclases docs are in here instead
 
 The L<Data::Validation::Date> module requires the as yet unpublished module
 L<CatalystX::Usul::Class::Time>
