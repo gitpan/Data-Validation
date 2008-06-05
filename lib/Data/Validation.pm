@@ -1,6 +1,6 @@
 package Data::Validation;
 
-# @(#)$Id: Validation.pm 16 2008-05-23 21:04:53Z pjf $
+# @(#)$Id: Validation.pm 17 2008-06-02 18:34:59Z pjf $
 
 use strict;
 use warnings;
@@ -12,7 +12,7 @@ use Readonly;
 use Regexp::Common qw(number);
 use Scalar::Util   qw(looks_like_number);
 
-use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 16 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 17 $ =~ /\d+/gmx );
 
 Readonly my %ATTRS => ( max_length => undef,
                         max_value  => undef,
@@ -235,7 +235,7 @@ Data::Validation - Check data values form conformance with constraints
 
 =head1 Version
 
-0.1.$Rev: 16 $
+0.1.$Rev: 17 $
 
 =head1 Synopsis
 
@@ -453,7 +453,7 @@ Carps warnings about unknown or bad validation methods
 
 =head1 Dependencies
 
-=over 4
+=over 3
 
 =item L<charnames>
 
@@ -477,7 +477,7 @@ Carps warnings about unknown or bad validation methods
 
 =head1 Incompatibilities
 
-There are no known incompatibilities in this module.
+There are no known incompatibilities in this module
 
 =head1 Bugs and Limitations
 
@@ -487,7 +487,7 @@ The L<Data::Validation::Date> module requires the as yet unpublished module
 L<CatalystX::Usul::Class::Time>
 
 Please report problems to the address below.
-Patches are welcome.
+Patches are welcome
 
 =head1 Author
 
@@ -495,14 +495,14 @@ Peter Flanigan, C<< <Support at RoxSoft.co.uk> >>
 
 =head1 License and Copyright
 
-Copyright (c) 2007 Peter Flanigan. All rights reserved.
+Copyright (c) 2008 Peter Flanigan. All rights reserved
 
 This program is free software; you can redistribute it and/or modify it
-under the same terms as Perl itself. See L<perlartistic>.
+under the same terms as Perl itself. See L<perlartistic>
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE
 
 =cut
 

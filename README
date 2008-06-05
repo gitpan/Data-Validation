@@ -2,7 +2,7 @@ Name
     Data::Validation - Check data values form conformance with constraints
 
 Version
-    0.1.$Rev: 16 $
+    0.1.$Rev: 17 $
 
 Synopsis
        use Data::Validation;
@@ -186,7 +186,7 @@ Dependencies
     Scalar::Util
 
 Incompatibilities
-    There are no known incompatibilities in this module.
+    There are no known incompatibilities in this module
 
 Bugs and Limitations
     There is no POD coverage test because the subclases docs are in here
@@ -195,18 +195,18 @@ Bugs and Limitations
     The Data::Validation::Date module requires the as yet unpublished module
     CatalystX::Usul::Class::Time
 
-    Please report problems to the address below. Patches are welcome.
+    Please report problems to the address below. Patches are welcome
 
 Author
     Peter Flanigan, "<Support at RoxSoft.co.uk>"
 
 License and Copyright
-    Copyright (c) 2007 Peter Flanigan. All rights reserved.
+    Copyright (c) 2008 Peter Flanigan. All rights reserved
 
     This program is free software; you can redistribute it and/or modify it
-    under the same terms as Perl itself. See perlartistic.
+    under the same terms as Perl itself. See perlartistic
 
     This program is distributed in the hope that it will be useful, but
     WITHOUT WARRANTY; without even the implied warranty of MERCHANTABILITY
-    or FITNESS FOR A PARTICULAR PURPOSE.
+    or FITNESS FOR A PARTICULAR PURPOSE
 
