@@ -1,6 +1,6 @@
 ---
 name: Data-Validation
-version: 0.1.17
+version: 0.1.22
 author:
   - 'Peter Flanigan, C<< <Support at RoxSoft.co.uk> >>'
 abstract: Check data values form conformance with constraints
@@ -21,11 +21,12 @@ requires:
   perl: 5.8
   version: 0.74
 build_requires:
+  Test::More: 0.74
   version: 0.74
 provides:
   Data::Validation:
     file: lib/Data/Validation.pm
-    version: 0.1.17
+    version: 0.1.22
   Data::Validation::Date:
     file: lib/Data/Validation/Date.pm
     version: 0.1.18

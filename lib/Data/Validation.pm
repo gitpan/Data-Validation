@@ -1,6 +1,6 @@
 package Data::Validation;
 
-# @(#)$Id: Validation.pm 17 2008-06-02 18:34:59Z pjf $
+# @(#)$Id: Validation.pm 22 2008-06-05 19:52:41Z pjf $
 
 use strict;
 use warnings;
@@ -12,7 +12,7 @@ use Readonly;
 use Regexp::Common qw(number);
 use Scalar::Util   qw(looks_like_number);
 
-use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 17 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 22 $ =~ /\d+/gmx );
 
 Readonly my %ATTRS => ( max_length => undef,
                         max_value  => undef,
@@ -235,7 +235,7 @@ Data::Validation - Check data values form conformance with constraints
 
 =head1 Version
 
-0.1.$Rev: 17 $
+0.1.$Rev: 22 $
 
 =head1 Synopsis
 
@@ -484,7 +484,8 @@ There are no known incompatibilities in this module
 There is no POD coverage test because the subclases docs are in here instead
 
 The L<Data::Validation::Date> module requires the as yet unpublished module
-L<CatalystX::Usul::Class::Time>
+L<CatalystX::Usul::Class::Time> and this is not listed as pre req as it
+would create a circular dependancy
 
 Please report problems to the address below.
 Patches are welcome

@@ -2,7 +2,7 @@ Name
     Data::Validation - Check data values form conformance with constraints
 
 Version
-    0.1.$Rev: 17 $
+    0.1.$Rev: 22 $
 
 Synopsis
        use Data::Validation;
@@ -193,7 +193,8 @@ Bugs and Limitations
     instead
 
     The Data::Validation::Date module requires the as yet unpublished module
-    CatalystX::Usul::Class::Time
+    CatalystX::Usul::Class::Time and this is not listed as pre req as it
+    would create a circular dependancy
 
     Please report problems to the address below. Patches are welcome
 
