@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-# @(#)$Id: 10base.t 13 2008-03-02 17:40:13Z pjf $
+# @(#)$Id: 10base.t 25 2008-06-06 14:00:19Z pjf $
 
 use strict;
 use warnings;
@@ -11,7 +11,7 @@ use lib qq($Bin/../lib);
 use Exception::Class ( q(TestException) => { fields => [ qw(arg1 arg2) ] } );
 use Test::More tests => 34;
 
-use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 13 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 25 $ =~ /\d+/gmx );
 
 BEGIN { use_ok q(Data::Validation) }
 
@@ -51,7 +51,7 @@ ok( !test_val( $f, q(test), q(this is text) )->error, q(Simple text) );
 
 $f->{test}->{validate} = q(isValidHostname);
 
-ok(  test_val( $f, q(test), q(no_really) )->error eq q(eValidHostname),
+ok(  test_val( $f, q(test), q(does_not_exist) )->error eq q(eValidHostname),
      q(Not valid hostname) );
 ok( !test_val( $f, q(test), q(localhost) )->error, q(Valid hostname) );
 ok( !test_val( $f, q(test), q(127.0.0.1) )->error, q(Valid hostname) );
