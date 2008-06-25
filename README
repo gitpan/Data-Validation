@@ -2,7 +2,7 @@ Name
     Data::Validation - Check data values form conformance with constraints
 
 Version
-    0.1.$Rev: 30 $
+    0.1.$Rev: 33 $
 
 Synopsis
        use Data::Validation;

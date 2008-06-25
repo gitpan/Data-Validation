@@ -1,6 +1,6 @@
 package Data::Validation;
 
-# @(#)$Id: Validation.pm 30 2008-06-24 15:29:30Z pjf $
+# @(#)$Id: Validation.pm 33 2008-06-25 12:46:43Z pjf $
 
 use strict;
 use warnings;
@@ -12,7 +12,7 @@ use Readonly;
 use Regexp::Common qw(number);
 use Scalar::Util   qw(looks_like_number);
 
-use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 30 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.1.%d', q$Rev: 33 $ =~ /\d+/gmx );
 
 Readonly my %ATTRS => ( max_length => undef,
                         max_value  => undef,
@@ -235,7 +235,7 @@ Data::Validation - Check data values form conformance with constraints
 
 =head1 Version
 
-0.1.$Rev: 30 $
+0.1.$Rev: 33 $
 
 =head1 Synopsis
 
