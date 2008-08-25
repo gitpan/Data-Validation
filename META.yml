@@ -1,52 +1,63 @@
 ---
 name: Data-Validation
-version: 0.1.33
+version: 0.2.52
 author:
   - 'Peter Flanigan, C<< <Support at RoxSoft.co.uk> >>'
-abstract: Check data values form conformance with constraints
+abstract: Check data values for conformance with constraints
 license: perl
 resources:
   license: http://dev.perl.org/licenses/
+configure_requires:
+  version: 0.74
 requires:
-  Class::Accessor::Fast: 0.31
-  Class::Null: 1.09
+  Class::MOP: 0.53
   Email::Valid: 0.179
-  Exception::Class: 1.23
-  File::Spec::Functions: 1.3
   LWP::UserAgent: 2.036
-  Readonly: 1.03
+  Moose: 0.38
+  Moose::Role: 0.55
+  Moose::Util::TypeConstraints: 0.21
   Regexp::Common: 2.120
   Scalar::Util: 1.19
   charnames: 1.05
-  perl: 5.8
+  perl: 5.008
   version: 0.74
 build_requires:
+  Class::Null: 1.09
+  Exception::Class: 1.23
   Test::More: 0.74
-configure_requires:
   version: 0.74
 provides:
   Data::Validation:
     file: lib/Data/Validation.pm
-    version: 0.1.33
-  Data::Validation::Date:
-    file: lib/Data/Validation/Date.pm
-    version: 0.1.18
-  Data::Validation::Email:
-    file: lib/Data/Validation/Email.pm
-    version: 0.1.9
-  Data::Validation::Password:
-    file: lib/Data/Validation/Password.pm
-    version: 0.1.13
-  Data::Validation::Path:
-    file: lib/Data/Validation/Path.pm
-    version: 0.1.9
-  Data::Validation::Postcode:
-    file: lib/Data/Validation/Postcode.pm
-    version: 0.1.9
-  Data::Validation::URL:
-    file: lib/Data/Validation/URL.pm
-    version: 0.1.9
-generated_by: Module::Build version 0.2808
+    version: 0.2.52
+  Data::Validation::Constraints:
+    file: lib/Data/Validation/Constraints.pm
+    version: 0.2.54
+  Data::Validation::Constraints::Date:
+    file: lib/Data/Validation/Constraints/Date.pm
+    version: 0.2.47
+  Data::Validation::Constraints::Email:
+    file: lib/Data/Validation/Constraints/Email.pm
+    version: 0.2.47
+  Data::Validation::Constraints::Password:
+    file: lib/Data/Validation/Constraints/Password.pm
+    version: 0.2.47
+  Data::Validation::Constraints::Path:
+    file: lib/Data/Validation/Constraints/Path.pm
+    version: 0.2.47
+  Data::Validation::Constraints::Postcode:
+    file: lib/Data/Validation/Constraints/Postcode.pm
+    version: 0.2.47
+  Data::Validation::Constraints::URL:
+    file: lib/Data/Validation/Constraints/URL.pm
+    version: 0.2.47
+  Data::Validation::Filters:
+    file: lib/Data/Validation/Filters.pm
+    version: 0.2.54
+  Data::Validation::Utils:
+    file: lib/Data/Validation/Utils.pm
+    version: 0.2.54
+generated_by: Module::Build version 0.280801
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4

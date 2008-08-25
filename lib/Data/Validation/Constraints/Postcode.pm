@@ -1,0 +1,28 @@
+package Data::Validation::Constraints::Postcode;
+
+# @(#)$Id: Postcode.pm 47 2008-08-24 09:43:01Z pjf $
+
+use Moose;
+
+use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 47 $ =~ /\d+/gmx );
+
+extends 'Data::Validation::Constraints';
+
+override '_validate' => sub {
+   my ($me, $val) = @_;
+   my @patterns   = ( 'AN NAA',  'ANN NAA',  'AAN NAA', 'AANN NAA',
+                      'ANA NAA', 'AANA NAA', 'AAA NAA', );
+
+   foreach (@patterns) { s{ A }{[A-Z]}gmx; s{ N }{\\d}gmx; s{ [ ] }{\\s+}gmx; }
+
+   my $pattern = join q(|), @patterns;
+
+   return $val =~ m{ \A (?:$pattern) \z }mox ? 1 : 0;
+};
+
+1;
+
+# Local Variables:
+# mode: perl
+# tab-width: 3
+# End:

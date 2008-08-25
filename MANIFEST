@@ -1,11 +1,14 @@
 Changes
 lib/Data/Validation.pm
-lib/Data/Validation/Date.pm
-lib/Data/Validation/Email.pm
-lib/Data/Validation/Password.pm
-lib/Data/Validation/Path.pm
-lib/Data/Validation/Postcode.pm
-lib/Data/Validation/URL.pm
+lib/Data/Validation/Constraints.pm
+lib/Data/Validation/Constraints/Date.pm
+lib/Data/Validation/Constraints/Email.pm
+lib/Data/Validation/Constraints/Password.pm
+lib/Data/Validation/Constraints/Path.pm
+lib/Data/Validation/Constraints/Postcode.pm
+lib/Data/Validation/Constraints/URL.pm
+lib/Data/Validation/Filters.pm
+lib/Data/Validation/Utils.pm
 LICENSE
 Makefile.PL
 MANIFEST			This list of files
@@ -13,3 +16,4 @@ META.yml
 README
 t/02pod.t
 t/10base.t
+SIGNATURE    Added here by Module::Build
