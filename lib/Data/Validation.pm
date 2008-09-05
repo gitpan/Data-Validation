@@ -1,14 +1,15 @@
 package Data::Validation;
 
-# @(#)$Id: Validation.pm 52 2008-08-25 14:58:06Z pjf $
+# @(#)$Id: Validation.pm 56 2008-09-05 22:37:26Z pjf $
 
+use strict;
 use Moose;
 use Data::Validation::Utils;
 use Data::Validation::Constraints;
 use Data::Validation::Filters;
 use English qw(-no_match_vars);
 
-use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 52 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 56 $ =~ /\d+/gmx );
 
 has 'exception'   => ( is => q(ro), isa => q(Exception), required => 1 );
 has 'constraints' => ( is => q(ro), isa => q(HashRef), default => sub { {} } );
@@ -86,7 +87,7 @@ Data::Validation - Check data values for conformance with constraints
 
 =head1 Version
 
-0.2.$Rev: 52 $
+0.2.$Rev: 56 $
 
 =head1 Synopsis
 

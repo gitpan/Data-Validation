@@ -1,6 +1,6 @@
 ---
 name: Data-Validation
-version: 0.2.52
+version: 0.2.56
 author:
   - 'Peter Flanigan, C<< <Support at RoxSoft.co.uk> >>'
 abstract: Check data values for conformance with constraints
@@ -29,34 +29,34 @@ build_requires:
 provides:
   Data::Validation:
     file: lib/Data/Validation.pm
-    version: 0.2.52
+    version: 0.2.56
   Data::Validation::Constraints:
     file: lib/Data/Validation/Constraints.pm
-    version: 0.2.54
+    version: 0.2.56
   Data::Validation::Constraints::Date:
     file: lib/Data/Validation/Constraints/Date.pm
-    version: 0.2.47
+    version: 0.2.56
   Data::Validation::Constraints::Email:
     file: lib/Data/Validation/Constraints/Email.pm
-    version: 0.2.47
+    version: 0.2.56
   Data::Validation::Constraints::Password:
     file: lib/Data/Validation/Constraints/Password.pm
-    version: 0.2.47
+    version: 0.2.56
   Data::Validation::Constraints::Path:
     file: lib/Data/Validation/Constraints/Path.pm
-    version: 0.2.47
+    version: 0.2.56
   Data::Validation::Constraints::Postcode:
     file: lib/Data/Validation/Constraints/Postcode.pm
-    version: 0.2.47
+    version: 0.2.56
   Data::Validation::Constraints::URL:
     file: lib/Data/Validation/Constraints/URL.pm
-    version: 0.2.47
+    version: 0.2.56
   Data::Validation::Filters:
     file: lib/Data/Validation/Filters.pm
-    version: 0.2.54
+    version: 0.2.56
   Data::Validation::Utils:
     file: lib/Data/Validation/Utils.pm
-    version: 0.2.54
+    version: 0.2.56
 generated_by: Module::Build version 0.280801
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
