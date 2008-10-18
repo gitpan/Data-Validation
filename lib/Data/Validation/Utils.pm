@@ -1,6 +1,6 @@
 package Data::Validation::Utils;
 
-# @(#)$Id: Utils.pm 56 2008-09-05 22:37:26Z pjf $
+# @(#)$Id: Utils.pm 58 2008-10-02 23:59:42Z pjf $
 
 use strict;
 use Class::MOP;
@@ -8,7 +8,7 @@ use English qw(-no_match_vars);
 use Moose::Role;
 use Moose::Util::TypeConstraints;
 
-use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 56 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 58 $ =~ /\d+/gmx );
 
 subtype 'Exception' => as 'ClassName' => where { $_->can( q(throw) ) };
 
@@ -17,24 +17,24 @@ has 'method'    => ( is => q(ro), isa => q(Str), required => 1 );
 has 'pattern'   => ( is => q(rw), isa => q(Str) );
 
 sub _load_class {
-   my ($me, $prefix, $class) = @_;
+   my ($self, $prefix, $class) = @_;
 
    $class =~ s{ \A $prefix }{}mx;
 
    if ($class =~ m{ \A \+ }mx) { $class =~ s{ \A \+ }{}mx }
-   else { $class = $me->blessed.q(::).(ucfirst $class) }
+   else { $class = $self->blessed.q(::).(ucfirst $class) }
 
    eval { Class::MOP::load_class( $class ) };
 
-   $me->exception->throw( $EVAL_ERROR ) if ($EVAL_ERROR);
+   $self->exception->throw( $EVAL_ERROR ) if ($EVAL_ERROR);
 
-   return bless $me, $class;
+   return bless $self, $class;
 }
 
 sub _will {
-   my ($me, $method) = @_;
+   my ($self, $method) = @_;
 
-   return $method ? defined &{ $me->blessed.q(::).$method } : 0;
+   return $method ? defined &{ $self->blessed.q(::).$method } : 0;
 }
 
 1;
@@ -49,7 +49,7 @@ Data::Validation::Utils - Code and attribute reuse
 
 =head1 Version
 
-0.1.$Revision: 56 $
+0.2.$Revision: 58 $
 
 =head1 Synopsis
 

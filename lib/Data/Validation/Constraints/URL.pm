@@ -1,17 +1,17 @@
 package Data::Validation::Constraints::URL;
 
-# @(#)$Id: URL.pm 56 2008-09-05 22:37:26Z pjf $
+# @(#)$Id: URL.pm 57 2008-09-15 18:48:07Z pjf $
 
 use strict;
 use Moose;
 use LWP::UserAgent;
 
-use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 56 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 57 $ =~ /\d+/gmx );
 
 extends 'Data::Validation::Constraints';
 
 override '_validate' => sub {
-   my ($me, $val) = @_;
+   my ($self, $val) = @_;
 
    $val = 'http://localhost'.$val if ($val !~ m{ \A http: }mx);
 

@@ -2,33 +2,33 @@ Name
     Data::Validation - Check data values for conformance with constraints
 
 Version
-    0.2.$Rev: 56 $
+    0.2.$Rev: 60 $
 
 Synopsis
        use Data::Validation;
 
        sub check_field {
-          my ($me, $stash, $id, $value) = @_;
+          my ($self, $stash, $id, $value) = @_;
           my $config = { exception   => q(Exception::Class),
                          constraints => $stash->{constraints} || {},
                          fields      => $stash->{fields}      || {},
                          filters     => $stash->{filters}     || {} };
           my $dv = eval { Data::Validation->new( %{ $config } ) };
 
-          $me->throw( $EVAL_ERROR ) if ($EVAL_ERROR);
+          $self->throw( $EVAL_ERROR ) if ($EVAL_ERROR);
 
           return $dv->check_field( $id, $value );
        }
 
        sub check_form  {
-          my ($me, $stash, $form) = @_;
+          my ($self, $stash, $form) = @_;
           my $config = { exception   => q(Exception::Class),
                          constraints => $stash->{constraints} || {},
                          fields      => $stash->{fields}      || {},
                          filters     => $stash->{filters}     || {} };
           my $dv = eval { Data::Validation->new( %{ $config } ) };
 
-          $me->throw( $EVAL_ERROR ) if ($EVAL_ERROR);
+          $self->throw( $EVAL_ERROR ) if ($EVAL_ERROR);
 
           return $dv->check_form( $stash->{form_prefix}, $form );
        }
