@@ -1,6 +1,6 @@
 package Data::Validation;
 
-# @(#)$Id: Validation.pm 60 2008-10-18 18:29:14Z pjf $
+# @(#)$Id: Validation.pm 64 2008-10-25 08:44:09Z pjf $
 
 use strict;
 use Moose;
@@ -9,7 +9,7 @@ use Data::Validation::Constraints;
 use Data::Validation::Filters;
 use English qw(-no_match_vars);
 
-use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 60 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 64 $ =~ /\d+/gmx );
 
 has 'exception'   => ( is => q(ro), isa => q(Exception), required => 1 );
 has 'constraints' => ( is => q(ro), isa => q(HashRef), default => sub { {} } );
@@ -88,7 +88,7 @@ Data::Validation - Check data values for conformance with constraints
 
 =head1 Version
 
-0.2.$Rev: 60 $
+0.2.$Rev: 64 $
 
 =head1 Synopsis
 
@@ -229,3 +229,4 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE
 # mode: perl
 # tab-width: 3
 # End:
+
