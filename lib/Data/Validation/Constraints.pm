@@ -1,6 +1,6 @@
 package Data::Validation::Constraints;
 
-# @(#)$Id: Constraints.pm 57 2008-09-15 18:48:07Z pjf $
+# @(#)$Id: Constraints.pm 70 2009-03-06 20:02:20Z pjf $
 
 use strict;
 use Moose;
@@ -8,7 +8,7 @@ use charnames      qw(:full);
 use Regexp::Common qw(number);
 use Scalar::Util   qw(looks_like_number);
 
-use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 57 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 70 $ =~ /\d+/gmx );
 
 with 'Data::Validation::Utils';
 
@@ -127,6 +127,10 @@ sub isValidNumber {
    return 0;
 }
 
+__PACKAGE__->meta->make_immutable;
+
+no Moose;
+
 1;
 
 __END__
@@ -139,7 +143,7 @@ Data::Validation::Constraints - Test data values for conformance with constraint
 
 =head1 Version
 
-0.2.$Revision: 57 $
+0.2.$Revision: 70 $
 
 =head1 Synopsis
 

@@ -1,6 +1,6 @@
 package Data::Validation::Utils;
 
-# @(#)$Id: Utils.pm 58 2008-10-02 23:59:42Z pjf $
+# @(#)$Id: Utils.pm 70 2009-03-06 20:02:20Z pjf $
 
 use strict;
 use Class::MOP;
@@ -8,7 +8,7 @@ use English qw(-no_match_vars);
 use Moose::Role;
 use Moose::Util::TypeConstraints;
 
-use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 58 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 70 $ =~ /\d+/gmx );
 
 subtype 'Exception' => as 'ClassName' => where { $_->can( q(throw) ) };
 
@@ -37,6 +37,8 @@ sub _will {
    return $method ? defined &{ $self->blessed.q(::).$method } : 0;
 }
 
+no Moose::Role; no Moose::Util::TypeConstraints;
+
 1;
 
 __END__
@@ -49,7 +51,7 @@ Data::Validation::Utils - Code and attribute reuse
 
 =head1 Version
 
-0.2.$Revision: 58 $
+0.2.$Revision: 70 $
 
 =head1 Synopsis
 

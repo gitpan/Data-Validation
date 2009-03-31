@@ -1,11 +1,11 @@
 package Data::Validation::Filters;
 
-# @(#)$Id: Filters.pm 57 2008-09-15 18:48:07Z pjf $
+# @(#)$Id: Filters.pm 70 2009-03-06 20:02:20Z pjf $
 
 use strict;
 use Moose;
 
-use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 57 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 70 $ =~ /\d+/gmx );
 
 with 'Data::Validation::Utils';
 
@@ -79,6 +79,10 @@ sub filterWhiteSpace {
    return $val;
 }
 
+__PACKAGE__->meta->make_immutable;
+
+no Moose;
+
 1;
 
 __END__
@@ -91,7 +95,7 @@ Data::Validation::Filters - Filter data values
 
 =head1 Version
 
-0.2.$Revision: 57 $
+0.2.$Revision: 70 $
 
 =head1 Synopsis
 

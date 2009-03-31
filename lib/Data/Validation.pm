@@ -1,6 +1,6 @@
 package Data::Validation;
 
-# @(#)$Id: Validation.pm 66 2008-11-14 02:53:21Z pjf $
+# @(#)$Id: Validation.pm 72 2009-03-24 03:14:23Z pjf $
 
 use strict;
 use Moose;
@@ -9,7 +9,7 @@ use Data::Validation::Constraints;
 use Data::Validation::Filters;
 use English qw(-no_match_vars);
 
-use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 66 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 72 $ =~ /\d+/gmx );
 
 has 'exception'   => ( is => q(ro), isa => q(Exception), required => 1 );
 has 'constraints' => ( is => q(ro), isa => q(HashRef), default => sub { {} } );
@@ -76,6 +76,10 @@ sub check_field {
    return $value;
 }
 
+__PACKAGE__->meta->make_immutable;
+
+no Moose;
+
 1;
 
 __END__
@@ -88,7 +92,7 @@ Data::Validation - Check data values for conformance with constraints
 
 =head1 Version
 
-0.2.$Rev: 66 $
+0.2.$Rev: 72 $
 
 =head1 Synopsis
 
@@ -229,3 +233,4 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE
 # mode: perl
 # tab-width: 3
 # End:
+

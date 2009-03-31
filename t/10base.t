@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-# @(#)$Id: 10base.t 65 2008-11-14 02:52:01Z pjf $
+# @(#)$Id: 10base.t 69 2009-02-22 02:48:56Z pjf $
 
 use strict;
 use warnings;
@@ -11,13 +11,17 @@ use lib qq($Bin/../lib);
 use Exception::Class ( q(TestException) => { fields => [ qw(arg1 arg2) ] } );
 use Test::More;
 
-use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 65 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 69 $ =~ /\d+/gmx );
 
-if ($ENV{AUTOMATED_TESTING} || ($ENV{PERL5OPT} || q()) =~ m{ CPAN-Reporter }mx) {
-   plan skip_all => q(CPAN Testing stopped);
+BEGIN {
+   if ($ENV{AUTOMATED_TESTING} || $ENV{PERL_CR_SMOKER_CURRENT}
+       || ($ENV{PERL5OPT} || q()) =~ m{ CPAN-Reporter }mx
+       || ($ENV{PERL5_CPANPLUS_IS_RUNNING} && $ENV{PERL5_CPAN_IS_RUNNING})) {
+      plan skip_all => q(CPAN Testing stopped);
+   }
+
+   plan tests => 46;
 }
-
-plan tests => 46;
 
 use_ok q(Data::Validation);
 
