@@ -1,17 +1,14 @@
-#!/usr/bin/perl
-
-# @(#)$Id: 10base.t 69 2009-02-22 02:48:56Z pjf $
+# @(#)$Id: 10base.t 78 2009-05-20 16:11:17Z pjf $
 
 use strict;
 use warnings;
-use Class::Null;
-use English qw(-no_match_vars);
-use FindBin qw($Bin);
-use lib qq($Bin/../lib);
-use Exception::Class ( q(TestException) => { fields => [ qw(arg1 arg2) ] } );
-use Test::More;
+use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 78 $ =~ /\d+/gmx );
+use File::Spec::Functions;
+use FindBin  qw( $Bin );
+use lib (catdir( $Bin, updir, q(lib) ));
 
-use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 69 $ =~ /\d+/gmx );
+use English  qw( -no_match_vars );
+use Test::More;
 
 BEGIN {
    if ($ENV{AUTOMATED_TESTING} || $ENV{PERL_CR_SMOKER_CURRENT}
@@ -23,6 +20,9 @@ BEGIN {
    plan tests => 46;
 }
 
+use Class::Null;
+use Exception::Class ( q(TestException) => { fields => [ qw(arg1 arg2) ] } );
+
 use_ok q(Data::Validation);
 
 sub test_val {
@@ -33,13 +33,15 @@ sub test_val {
 
    return $e->error if ($e = TestException->caught());
 
+   die $EVAL_ERROR  if ($EVAL_ERROR);
+
    return $value;
 }
 
 my $f = {};
-ok( test_val( $f, undef, 1 ) eq q(eNoFieldDefinition),
+ok( test_val( $f, undef, 1 ) eq q(No definition for field),
     q(No field definition 1) );
-ok( test_val( $f, q(test), 1 ) eq q(eNoFieldDefinition),
+ok( test_val( $f, q(test), 1 ) eq q(No definition for field),
     q(No field definition 2) );
 
 $f->{fields}->{test}->{validate} = q(isHexadecimal);
@@ -180,3 +182,8 @@ ok( test_val( $f, q(test), q(hello world) ) eq q(HELLO WORLD),
 $f->{fields}->{test}->{filters} = q(filterWhiteSpace);
 $f->{constraints}->{test} = { pattern => q(\A \d+ \z) };
 ok( test_val( $f, q(test), q(123 456) ) == 123456, q(Filter WhiteSpace) );
+
+# Local Variables:
+# mode: perl
+# tab-width: 3
+# End:

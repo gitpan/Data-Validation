@@ -1,9 +1,9 @@
 ---
 name: Data-Validation
-version: 0.2.72
+version: 0.2.78
 author:
   - 'Peter Flanigan, C<< <Support at RoxSoft.co.uk> >>'
-abstract: Check data values for conformance with constraints
+abstract: Filter and check data values
 license: perl
 resources:
   license: http://dev.perl.org/licenses/
@@ -20,22 +20,20 @@ requires:
   Regexp::Common: 2.120
   Scalar::Util: 1.19
   charnames: 1.05
+  namespace::autoclean: 0.05
   perl: 5.008
   version: 0.74
 build_requires:
   Class::Null: 1.09
   Exception::Class: 1.23
-  Test::Harness: 2.64
   Test::More: 0.74
-  Test::Pod: 1.14
-  version: 0.74
 provides:
   Data::Validation:
     file: lib/Data/Validation.pm
-    version: 0.2.72
+    version: 0.2.78
   Data::Validation::Constraints:
     file: lib/Data/Validation/Constraints.pm
-    version: 0.2.70
+    version: 0.2.78
   Data::Validation::Constraints::Date:
     file: lib/Data/Validation/Constraints/Date.pm
     version: 0.2.72
@@ -56,10 +54,10 @@ provides:
     version: 0.2.57
   Data::Validation::Filters:
     file: lib/Data/Validation/Filters.pm
-    version: 0.2.70
+    version: 0.2.78
   Data::Validation::Utils:
     file: lib/Data/Validation/Utils.pm
-    version: 0.2.70
+    version: 0.2.78
 generated_by: Module::Build version 0.31
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html

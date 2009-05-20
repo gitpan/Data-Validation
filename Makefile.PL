@@ -23,10 +23,9 @@ WriteMakefile
                            'Moose::Util::TypeConstraints' => '0.21',
                            'Regexp::Common' => '2.120',
                            'Scalar::Util' => '1.19',
-                           'Test::Harness' => '2.64',
                            'Test::More' => '0.74',
-                           'Test::Pod' => '1.14',
                            'charnames' => '1.05',
+                           'namespace::autoclean' => '0.05',
                            'version' => '0.74'
                          },
           'INSTALLDIRS' => 'site',

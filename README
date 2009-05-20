@@ -1,8 +1,8 @@
 Name
-    Data::Validation - Check data values for conformance with constraints
+    Data::Validation - Filter and check data values
 
 Version
-    0.2.$Rev: 72 $
+    0.2.$Rev: 78 $
 
 Synopsis
        use Data::Validation;
@@ -77,14 +77,13 @@ Subroutines/Methods
     *fields* hash whose *validate* attribute contains the list of space
     separated constraint names. The value is tested against each constraint
     in turn. All tests must pass or the subroutine will use the *exception*
-    class to *throw* an error
+    class to "throw" an error
 
 Diagnostics
     None
 
 Dependencies
     Moose
-    Moose::Util::TypeConstraints
     Data::Validation::Constraints
     Data::Validation::Filters
 

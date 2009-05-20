@@ -1,13 +1,14 @@
+# @(#)$Id: Filters.pm 78 2009-05-20 16:11:17Z pjf $
+
 package Data::Validation::Filters;
 
-# @(#)$Id: Filters.pm 70 2009-03-06 20:02:20Z pjf $
-
 use strict;
+use namespace::autoclean;
+use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 78 $ =~ /\d+/gmx );
+
 use Moose;
 
-use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 70 $ =~ /\d+/gmx );
-
-with 'Data::Validation::Utils';
+with q(Data::Validation::Utils);
 
 has 'replace' => ( is => q(rw), isa => q(Str) );
 
@@ -15,17 +16,16 @@ sub filter {
    my ($self, $val) = @_; my $method = $self->method; my $class;
 
    return unless (defined $val);
-   return $self->$method( $val ) if ($self->_will( $method ));
 
-   my $plugin = $self->_load_class( q(filter), $method );
+   return $self->$method( $val ) if ($self->can( $method ));
 
-   return $plugin->_filter( $val );
+   return $self->_load_class( q(filter), $method )->_filter( $val );
 }
 
 # Private methods
 
 sub _filter {
-   shift->exception->throw( q(eNoFilterOverride) ); return;
+   shift->exception->throw( 'Method _filter not overridden' ); return;
 }
 
 # Builtin factory filter methods
@@ -95,7 +95,7 @@ Data::Validation::Filters - Filter data values
 
 =head1 Version
 
-0.2.$Revision: 70 $
+0.2.$Revision: 78 $
 
 =head1 Synopsis
 
