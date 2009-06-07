@@ -1,11 +1,11 @@
-# @(#)$Id: 10base.t 78 2009-05-20 16:11:17Z pjf $
+# @(#)$Id: 10base.t 85 2009-06-06 17:17:58Z pjf $
 
 use strict;
 use warnings;
-use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 78 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 85 $ =~ /\d+/gmx );
 use File::Spec::Functions;
-use FindBin  qw( $Bin );
-use lib (catdir( $Bin, updir, q(lib) ));
+use FindBin qw( $Bin );
+use lib catdir( $Bin, updir, q(lib) );
 
 use English  qw( -no_match_vars );
 use Test::More;
@@ -21,7 +21,7 @@ BEGIN {
 }
 
 use Class::Null;
-use Exception::Class ( q(TestException) => { fields => [ qw(arg1 arg2) ] } );
+use Exception::Class ( q(TestException) => { fields => [ qw(args) ] } );
 
 use_ok q(Data::Validation);
 

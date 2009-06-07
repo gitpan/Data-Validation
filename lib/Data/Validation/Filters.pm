@@ -1,10 +1,10 @@
-# @(#)$Id: Filters.pm 78 2009-05-20 16:11:17Z pjf $
+# @(#)$Id: Filters.pm 83 2009-06-06 16:15:55Z pjf $
 
 package Data::Validation::Filters;
 
 use strict;
 use namespace::autoclean;
-use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 78 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 83 $ =~ /\d+/gmx );
 
 use Moose;
 
@@ -25,7 +25,11 @@ sub filter {
 # Private methods
 
 sub _filter {
-   shift->exception->throw( 'Method _filter not overridden' ); return;
+   my $self = shift; my $exception = $self->exception;
+
+   $exception->throw( error => 'Method [_1] not overridden in class [_2]',
+                      args  => [ q(_filter), ref $self || $self ] );
+   return;
 }
 
 # Builtin factory filter methods
@@ -95,7 +99,7 @@ Data::Validation::Filters - Filter data values
 
 =head1 Version
 
-0.2.$Revision: 78 $
+0.2.$Revision: 83 $
 
 =head1 Synopsis
 

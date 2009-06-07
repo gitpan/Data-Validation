@@ -1,5 +1,12 @@
 Revision history for Data::Validation
 
+0.2.85   06/06/2009
+         - Fixed tests
+         - Enhanced exception messages
+
+0.2.81   05/06/2009
+         - Exception class API changed
+
 0.2.78   20/05/2009
          - Removed stupid _will method
          - Added namespace::autoclean

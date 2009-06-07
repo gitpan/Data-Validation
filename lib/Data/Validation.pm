@@ -1,10 +1,10 @@
-# @(#)$Id: Validation.pm 78 2009-05-20 16:11:17Z pjf $
+# @(#)$Id: Validation.pm 85 2009-06-06 17:17:58Z pjf $
 
 package Data::Validation;
 
 use strict;
 use namespace::autoclean;
-use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 78 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 85 $ =~ /\d+/gmx );
 
 use Data::Validation::Constraints;
 use Data::Validation::Filters;
@@ -42,7 +42,7 @@ sub check_field {
 
    unless ($id and $field = $self->fields->{ $id } and $field->{validate}) {
       $self->exception->throw( error => 'No definition for field',
-                               arg1  => $id, arg2 => $value );
+                               args  => [ $id, $value ] );
    }
 
    if ($field->{filters}) {
@@ -68,8 +68,7 @@ sub check_field {
 
       unless ($constraint_ref->validate( $value )) {
          ($error = $method) =~ s{ \A is }{e}imx;
-         $self->exception->throw( error => $error,
-                                  arg1  => $id, arg2 => $value );
+         $self->exception->throw( error => $error, args => [ $id, $value ] );
       }
    }
 
@@ -92,7 +91,7 @@ Data::Validation - Filter and check data values
 
 =head1 Version
 
-0.2.$Rev: 78 $
+0.2.$Rev: 85 $
 
 =head1 Synopsis
 

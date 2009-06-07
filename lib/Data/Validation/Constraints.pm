@@ -1,11 +1,11 @@
-# @(#)$Id: Constraints.pm 78 2009-05-20 16:11:17Z pjf $
+# @(#)$Id: Constraints.pm 83 2009-06-06 16:15:55Z pjf $
 
 package Data::Validation::Constraints;
 
 use strict;
 use charnames qw(:full);
 use namespace::autoclean;
-use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 78 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 83 $ =~ /\d+/gmx );
 
 use Moose;
 use Regexp::Common qw(number);
@@ -35,7 +35,11 @@ sub validate {
 # Private methods
 
 sub _validate {
-   shift->exception->throw( 'Method _validate not overridden' ); return;
+   my $self = shift; my $exception = $self->exception;
+
+   $exception->throw( error => 'Method [_1] not overridden in class [_2]',
+                      args  => [ q(_validate), ref $self || $self ] );
+   return;
 }
 
 # Builtin factory validation methods
@@ -144,7 +148,7 @@ Data::Validation::Constraints - Test data values for conformance with constraint
 
 =head1 Version
 
-0.2.$Revision: 78 $
+0.2.$Revision: 83 $
 
 =head1 Synopsis
 
