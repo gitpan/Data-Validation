@@ -1,10 +1,10 @@
-# @(#)$Id: Utils.pm 78 2009-05-20 16:11:17Z pjf $
+# @(#)$Id: Utils.pm 104 2009-06-24 18:36:23Z pjf $
 
 package Data::Validation::Utils;
 
 use strict;
 use namespace::autoclean;
-use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 78 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.3.%d', q$Rev: 104 $ =~ /\d+/gmx );
 
 use Class::MOP;
 use English qw(-no_match_vars);
@@ -26,11 +26,31 @@ sub _load_class {
    if ($class =~ m{ \A \+ }mx) { $class =~ s{ \A \+ }{}mx }
    else { $class = blessed( $self ).q(::).(ucfirst $class) }
 
-   eval { Class::MOP::load_class( $class ) };
-
-   $self->exception->throw( $EVAL_ERROR ) if ($EVAL_ERROR);
+   $self->_ensure_class_loaded( $class );
 
    return bless $self, $class;
+}
+
+sub _ensure_class_loaded {
+   my ($self, $class, $opts) = @_; my $error; $opts ||= {};
+
+   my $is_class_loaded = sub { Class::MOP::is_class_loaded( $class ) };
+
+   return 1 if (not $opts->{ignore_loaded} and $is_class_loaded->());
+
+   {  local $EVAL_ERROR = undef;
+      eval { Class::MOP::load_class( $class ) };
+      $error = $EVAL_ERROR;
+   }
+
+   $self->exception->throw( $error ) if ($error);
+
+   unless ($is_class_loaded->()) {
+      $error = 'Class [_1] loaded but package undefined';
+      $self->exception->throw( error => $error, args => [ $class ] );
+   }
+
+   return 1;
 }
 
 no Moose::Role; no Moose::Util::TypeConstraints;
@@ -47,7 +67,7 @@ Data::Validation::Utils - Code and attribute reuse
 
 =head1 Version
 
-0.2.$Revision: 78 $
+0.3.$Revision: 104 $
 
 =head1 Synopsis
 
@@ -86,7 +106,11 @@ then call L</isMathchingRegex> to perform the actual validation
 
 =head2 _load_class
 
-Load the external plugin subclass at run time
+Load the external plugin subclass at run time and rebless self to that class
+
+=head2 _ensure_class_loaded
+
+Throws if class cannot be loaded
 
 =head1 Diagnostics
 

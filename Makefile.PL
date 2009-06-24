@@ -24,6 +24,7 @@ WriteMakefile
                            'Regexp::Common' => '2.120',
                            'Scalar::Util' => '1.19',
                            'Test::More' => '0.74',
+                           'Test::Pod' => '1.26',
                            'charnames' => '1.05',
                            'namespace::autoclean' => '0.05',
                            'version' => '0.74'

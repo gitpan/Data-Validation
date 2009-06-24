@@ -1,6 +1,6 @@
 ---
 name: Data-Validation
-version: 0.2.85
+version: 0.3.104
 author:
   - 'Peter Flanigan, C<< <Support at RoxSoft.co.uk> >>'
 abstract: Filter and check data values
@@ -27,37 +27,43 @@ build_requires:
   Class::Null: 1.09
   Exception::Class: 1.23
   Test::More: 0.74
+  Test::Pod: 1.26
+recommends:
+  CatalystX::Usul::Time: 0.3.576
 provides:
   Data::Validation:
     file: lib/Data/Validation.pm
-    version: 0.2.85
+    version: 0.3.104
   Data::Validation::Constraints:
     file: lib/Data/Validation/Constraints.pm
-    version: 0.2.83
+    version: 0.3.92
   Data::Validation::Constraints::Date:
     file: lib/Data/Validation/Constraints/Date.pm
-    version: 0.2.72
+    version: 0.3.92
   Data::Validation::Constraints::Email:
     file: lib/Data/Validation/Constraints/Email.pm
-    version: 0.2.57
+    version: 0.3.92
   Data::Validation::Constraints::Password:
     file: lib/Data/Validation/Constraints/Password.pm
-    version: 0.2.57
+    version: 0.3.92
   Data::Validation::Constraints::Path:
     file: lib/Data/Validation/Constraints/Path.pm
-    version: 0.2.57
+    version: 0.3.92
   Data::Validation::Constraints::Postcode:
     file: lib/Data/Validation/Constraints/Postcode.pm
-    version: 0.2.57
+    version: 0.3.92
   Data::Validation::Constraints::URL:
     file: lib/Data/Validation/Constraints/URL.pm
-    version: 0.2.57
+    version: 0.3.92
   Data::Validation::Filters:
     file: lib/Data/Validation/Filters.pm
-    version: 0.2.83
+    version: 0.3.92
   Data::Validation::Utils:
     file: lib/Data/Validation/Utils.pm
-    version: 0.2.78
+    version: 0.3.104
+no_index:
+  directory:
+    - t
 generated_by: Module::Build version 0.31
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html

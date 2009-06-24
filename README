@@ -2,7 +2,7 @@ Name
     Data::Validation - Filter and check data values
 
 Version
-    0.2.$Rev: 85 $
+    0.3.$Rev: 104 $
 
 Synopsis
        use Data::Validation;
@@ -46,7 +46,8 @@ Configuration and Environment
     The following are passed to the constructor
 
     exception
-       Class capable of throwing an exception
+       Class capable of throwing an exception. Should provide an *args*
+       attribute
 
     constraints
        Hash containing constraint attributes. Keys are the $id values passed
@@ -61,6 +62,12 @@ Configuration and Environment
     filters
        Hash containing filter attributes. Keys are the $id values passed to
        "check_field". See Data::Validation::Filters
+
+    operators
+       Hash containing operator code refs. The keys of the hash ref are
+       comparison operators and their values are the anonymous code refs
+       that compare the operands and return a boolean. Used by the *compare*
+       form validation method
 
 Subroutines/Methods
   check_form

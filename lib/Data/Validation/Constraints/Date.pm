@@ -1,12 +1,12 @@
 package Data::Validation::Constraints::Date;
 
-# @(#)$Id: Date.pm 72 2009-03-24 03:14:23Z pjf $
+# @(#)$Id: Date.pm 92 2009-06-14 02:00:08Z pjf $
 
 use strict;
 use Moose;
 use CatalystX::Usul::Time;
 
-use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 72 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.3.%d', q$Rev: 92 $ =~ /\d+/gmx );
 
 extends 'Data::Validation::Constraints';
 

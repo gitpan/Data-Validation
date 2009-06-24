@@ -1,23 +1,22 @@
-# @(#)$Id: 10base.t 85 2009-06-06 17:17:58Z pjf $
+# @(#)$Id: 10base.t 100 2009-06-16 23:56:10Z pjf $
 
 use strict;
 use warnings;
-use version; our $VERSION = qv( sprintf '0.2.%d', q$Rev: 85 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.3.%d', q$Rev: 100 $ =~ /\d+/gmx );
 use File::Spec::Functions;
 use FindBin qw( $Bin );
 use lib catdir( $Bin, updir, q(lib) );
 
-use English  qw( -no_match_vars );
+use English qw( -no_match_vars );
 use Test::More;
 
 BEGIN {
    if ($ENV{AUTOMATED_TESTING} || $ENV{PERL_CR_SMOKER_CURRENT}
-       || ($ENV{PERL5OPT} || q()) =~ m{ CPAN-Reporter }mx
-       || ($ENV{PERL5_CPANPLUS_IS_RUNNING} && $ENV{PERL5_CPAN_IS_RUNNING})) {
+       || ($ENV{PERL5OPT} || q()) =~ m{ CPAN-Reporter }mx) {
       plan skip_all => q(CPAN Testing stopped);
    }
 
-   plan tests => 46;
+   plan tests => 50;
 }
 
 use Class::Null;
@@ -31,17 +30,16 @@ sub test_val {
    my $value     = eval { $validator->check_field( @_ ) };
    my $e;
 
-   return $e->error if ($e = TestException->caught());
-
-   die $EVAL_ERROR  if ($EVAL_ERROR);
+   return $e->error if ($e = Exception::Class->caught());
 
    return $value;
 }
 
 my $f = {};
-ok( test_val( $f, undef, 1 ) eq q(No definition for field),
+
+ok( test_val( $f, undef, 1 ) eq q(No definition for field [_1]),
     q(No field definition 1) );
-ok( test_val( $f, q(test), 1 ) eq q(No definition for field),
+ok( test_val( $f, q(test), 1 ) eq q(No definition for field [_1]),
     q(No field definition 2) );
 
 $f->{fields}->{test}->{validate} = q(isHexadecimal);
@@ -122,13 +120,13 @@ ok( test_val( $f, q(test), q(CA123445) ) eq q(eValidPostcode),
     q(Invalid postcode) );
 ok( test_val( $f, q(test), q(SW1A 4WW) ) eq q(SW1A 4WW), q(Valid postcode) );
 
-$f->{fields}->{subr_field_name }->{validate  } = q(isValidPostcode);
-$f->{fields}->{subr_field_name1}->{validate  } = q(isValidPath);
-$f->{fields}->{subr_field_name2}->{validate  } = q(isValidPassword);
-$f->{fields}->{subr_field_name3}->{validate  } = q(isValidEmail);
-$f->{fields}->{subr_field_name4}->{validate  } = q(isValidLength);
-$f->{constraints}->{subr_field_name4} = { min_length => 2,
-                                          max_length => 4 };
+$f->{fields}->{subr_field_name }->{validate} = q(isValidPostcode);
+$f->{fields}->{subr_field_name1}->{validate} = q(isValidPath);
+$f->{fields}->{subr_field_name2}->{validate} = q(isValidPassword);
+$f->{fields}->{subr_field_name3}->{validate} = q(isValidEmail);
+$f->{fields}->{subr_field_name4}->{validate} = q(isValidLength);
+$f->{fields}->{subr_field_name5}->{validate} = q(compare);
+$f->{constraints}->{subr_field_name5} = { other_field => q(field_name4) };
 
 my $validator
    = Data::Validation->new( exception => q(TestException), %{ $f } );
@@ -136,15 +134,42 @@ my $vals = { field_name  => q(SW1A 4WW),
              field_name1 => q(/this/is/ok),
              field_name2 => q(qw3erty),
              field_name3 => q(a@b.c),
-             field_name4 => q(qwe) };
+             field_name4 => q(qwe),
+             field_name5 => q(qwe) };
+
 eval { $validator->check_form( q(subr_), $vals ) };
+
 my $e = TestException->caught() || Class::Null->new();
+
 ok( !$e->error, q(Valid form) );
 
+$vals->{field_name5} = q(not_the_same_as_field4);
+eval { $validator->check_form( q(subr_), $vals ) };
+$e = TestException->caught() || Class::Null->new();
+ok( $e->error eq 'Field [_1] [_2] field [_3]', q(Non matching fields) );
+
+ok( $e->args->[0] eq q(field_name5)
+ && $e->args->[1] eq q(eq)
+ && $e->args->[2] eq q(field_name4), q(Field comparison args) );
+
+$f->{constraints}->{subr_field_name5}->{operator} = q(ne);
+eval { $validator->check_form( q(subr_), $vals ) };
+$e = TestException->caught() || Class::Null->new();
+ok( !$e->error, q(Not equal field comparison) );
+
+$f->{constraints}->{subr_field_name5}->{operator} = q(eq);
+$vals->{field_name5} = q(qwe);
+delete $f->{constraints}->{subr_field_name5}->{other_field};
+eval { $validator->check_form( q(subr_), $vals ) };
+$e = TestException->caught() || Class::Null->new();
+ok( $e->error eq 'Constraint [_1] has no comparison field',
+    q(No comparison field) );
+
+$f->{constraints}->{subr_field_name5}->{other_field} = q(field_name4);
 $vals->{field_name2} = q(tooeasy);
 eval { $validator->check_form( q(subr_), $vals ) };
 $e = TestException->caught() || Class::Null->new();
-ok(  $e->error eq q(eValidPassword), q(Invalid form) );
+ok( $e->error eq q(eValidPassword), q(Invalid form) );
 
 $f->{fields}->{test}->{validate} = q(isMatchingRegex);
 $f->{constraints}->{test} = { pattern => q(\A \d+ \z) };
