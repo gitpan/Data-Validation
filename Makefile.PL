@@ -18,6 +18,7 @@ WriteMakefile
                            'Email::Valid' => '0.179',
                            'Exception::Class' => '1.23',
                            'LWP::UserAgent' => '2.036',
+                           'List::Util' => '1.19',
                            'Moose' => '0.38',
                            'Moose::Role' => '0.55',
                            'Moose::Util::TypeConstraints' => '0.21',

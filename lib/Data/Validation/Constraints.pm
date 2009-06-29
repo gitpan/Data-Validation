@@ -1,11 +1,11 @@
-# @(#)$Id: Constraints.pm 92 2009-06-14 02:00:08Z pjf $
+# @(#)$Id: Constraints.pm 114 2009-06-29 00:03:22Z pjf $
 
 package Data::Validation::Constraints;
 
 use strict;
 use charnames qw(:full);
 use namespace::autoclean;
-use version; our $VERSION = qv( sprintf '0.3.%d', q$Rev: 92 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.4.%d', q$Rev: 114 $ =~ /\d+/gmx );
 
 use Moose;
 use Regexp::Common qw(number);
@@ -13,6 +13,7 @@ use Scalar::Util   qw(looks_like_number);
 
 with q(Data::Validation::Utils);
 
+has 'error'      => ( is => q(rw), isa => q(Str) );
 has 'max_length' => ( is => q(rw), isa => q(Int) );
 has 'max_value'  => ( is => q(rw), isa => q(Int) );
 has 'min_length' => ( is => q(rw), isa => q(Int) );
@@ -148,7 +149,7 @@ Data::Validation::Constraints - Test data values for conformance with constraint
 
 =head1 Version
 
-0.3.$Revision: 92 $
+0.4.$Revision: 114 $
 
 =head1 Synopsis
 
@@ -172,6 +173,11 @@ Uses the L<Data::Validation::Utils> L<Moose::Role>. Defines the
 following attributes:
 
 =over 3
+
+=item error
+
+A string containing the error message that is thrown if the validation
+fails
 
 =item max_length
 

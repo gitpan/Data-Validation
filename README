@@ -2,7 +2,7 @@ Name
     Data::Validation - Filter and check data values
 
 Version
-    0.3.$Rev: 104 $
+    0.4.$Rev: 114 $
 
 Synopsis
        use Data::Validation;
@@ -77,6 +77,12 @@ Subroutines/Methods
     to "check_field" the $form keys have the $prefix prepended to them to
     create the key to the $fields hash
 
+    If one of the fields constraint names is *compare*, then the fields
+    value is compared with the value for another field. The constraint
+    attribute *other_field* determines which field to compare and the
+    *operator* constraint attribute gives the comparison operator which
+    defaults to "eq"
+
   check_field
        $value = $dv->check_field( $id, $value );
 
@@ -93,6 +99,7 @@ Dependencies
     Moose
     Data::Validation::Constraints
     Data::Validation::Filters
+    List::Util
 
 Incompatibilities
     There are no known incompatibilities in this module

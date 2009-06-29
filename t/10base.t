@@ -1,8 +1,8 @@
-# @(#)$Id: 10base.t 100 2009-06-16 23:56:10Z pjf $
+# @(#)$Id: 10base.t 114 2009-06-29 00:03:22Z pjf $
 
 use strict;
 use warnings;
-use version; our $VERSION = qv( sprintf '0.3.%d', q$Rev: 100 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.4.%d', q$Rev: 114 $ =~ /\d+/gmx );
 use File::Spec::Functions;
 use FindBin qw( $Bin );
 use lib catdir( $Bin, updir, q(lib) );
@@ -11,8 +11,8 @@ use English qw( -no_match_vars );
 use Test::More;
 
 BEGIN {
-   if ($ENV{AUTOMATED_TESTING} || $ENV{PERL_CR_SMOKER_CURRENT}
-       || ($ENV{PERL5OPT} || q()) =~ m{ CPAN-Reporter }mx) {
+   if ($ENV{AUTOMATED_TESTING}  || $ENV{PERL_CR_SMOKER_CURRENT} ||
+       $ENV{PERL5_MINISMOKEBOX} || $ENV{PERL5_YACSMOKE_BASE}) {
       plan skip_all => q(CPAN Testing stopped);
    }
 
@@ -37,9 +37,9 @@ sub test_val {
 
 my $f = {};
 
-ok( test_val( $f, undef, 1 ) eq q(No definition for field [_1]),
+ok( test_val( $f, undef, 1 ) eq q(Field [_1] undefined),
     q(No field definition 1) );
-ok( test_val( $f, q(test), 1 ) eq q(No definition for field [_1]),
+ok( test_val( $f, q(test), 1 ) eq q(Field [_1] undefined),
     q(No field definition 2) );
 
 $f->{fields}->{test}->{validate} = q(isHexadecimal);
