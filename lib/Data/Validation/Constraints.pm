@@ -1,11 +1,11 @@
-# @(#)$Id: Constraints.pm 114 2009-06-29 00:03:22Z pjf $
+# @(#)$Id: Constraints.pm 120 2010-09-22 01:32:19Z pjf $
 
 package Data::Validation::Constraints;
 
 use strict;
 use charnames qw(:full);
 use namespace::autoclean;
-use version; our $VERSION = qv( sprintf '0.4.%d', q$Rev: 114 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.5.%d', q$Rev: 120 $ =~ /\d+/gmx );
 
 use Moose;
 use Regexp::Common qw(number);
@@ -149,7 +149,7 @@ Data::Validation::Constraints - Test data values for conformance with constraint
 
 =head1 Version
 
-0.4.$Revision: 114 $
+0.5.$Revision: 120 $
 
 =head1 Synopsis
 
@@ -329,9 +329,9 @@ There are no known incompatibilities in this module
 
 There is no POD coverage test because the subclasses docs are in here instead
 
-The L<Data::Validation::Constraints::Date> module requires the as yet
-unpublished module L<CatalystX::Usul::Class::Time> and this is not
-listed as prerequisite as it would create a circular dependency
+The L<Data::Validation::Constraints::Date> module requires the module
+L<CatalystX::Usul::Time> and this is not listed as prerequisite as it
+would create a circular dependency
 
 Please report problems to the address below.
 Patches are welcome
@@ -342,7 +342,7 @@ Peter Flanigan, C<< <Support at RoxSoft.co.uk> >>
 
 =head1 License and Copyright
 
-Copyright (c) 2008 Peter Flanigan. All rights reserved
+Copyright (c) 2008-2010 Peter Flanigan. All rights reserved
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself. See L<perlartistic>

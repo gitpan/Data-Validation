@@ -1,19 +1,17 @@
+# @(#)$Id: Date.pm 120 2010-09-22 01:32:19Z pjf $
+
 package Data::Validation::Constraints::Date;
 
-# @(#)$Id: Date.pm 107 2009-06-24 18:42:27Z pjf $
-
 use strict;
+use version; our $VERSION = qv( sprintf '0.5.%d', q$Rev: 120 $ =~ /\d+/gmx );
+
 use Moose;
-use CatalystX::Usul::Time;
+use CatalystX::Usul::Time qw(str2time);
 
-use version; our $VERSION = qv( sprintf '0.4.%d', q$Rev: 107 $ =~ /\d+/gmx );
-
-extends 'Data::Validation::Constraints';
+extends q(Data::Validation::Constraints);
 
 override '_validate' => sub {
-   my ($self, $val) = @_;
-
-   return defined CatalystX::Usul::Time->str2time( $val ) ? 1 : 0;
+   my $self = shift; return defined str2time( $_[ 0 ] ) ? 1 : 0;
 };
 
 1;

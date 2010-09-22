@@ -1,10 +1,10 @@
-# @(#)$Id: Validation.pm 114 2009-06-29 00:03:22Z pjf $
+# @(#)$Id: Validation.pm 120 2010-09-22 01:32:19Z pjf $
 
 package Data::Validation;
 
 use strict;
 use namespace::autoclean;
-use version; our $VERSION = qv( sprintf '0.4.%d', q$Rev: 114 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.5.%d', q$Rev: 120 $ =~ /\d+/gmx );
 
 use Data::Validation::Constraints;
 use Data::Validation::Filters;
@@ -12,7 +12,7 @@ use English    qw( -no_match_vars );
 use List::Util qw( first );
 use Moose;
 
-has 'exception'   => ( is => q(ro), isa => q(Exception), required => 1 );
+has 'exception'   => ( is => q(ro), isa => q(D_V_Exception), required => 1 );
 has 'constraints' => ( is => q(ro), isa => q(HashRef), default => sub { {} } );
 has 'fields'      => ( is => q(ro), isa => q(HashRef), default => sub { {} } );
 has 'filters'     => ( is => q(ro), isa => q(HashRef), default => sub { {} } );
@@ -165,7 +165,7 @@ Data::Validation - Filter and check data values
 
 =head1 Version
 
-0.4.$Rev: 114 $
+0.5.$Rev: 120 $
 
 =head1 Synopsis
 

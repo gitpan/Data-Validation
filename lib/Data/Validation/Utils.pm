@@ -1,10 +1,10 @@
-# @(#)$Id: Utils.pm 107 2009-06-24 18:42:27Z pjf $
+# @(#)$Id: Utils.pm 120 2010-09-22 01:32:19Z pjf $
 
 package Data::Validation::Utils;
 
 use strict;
 use namespace::autoclean;
-use version; our $VERSION = qv( sprintf '0.4.%d', q$Rev: 107 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.5.%d', q$Rev: 120 $ =~ /\d+/gmx );
 
 use Class::MOP;
 use English qw(-no_match_vars);
@@ -12,9 +12,9 @@ use Moose::Role;
 use Moose::Util::TypeConstraints;
 use Scalar::Util qw(blessed);
 
-subtype 'Exception' => as 'ClassName' => where { $_->can( q(throw) ) };
+subtype 'D_V_Exception' => as 'ClassName' => where { $_->can( q(throw) ) };
 
-has 'exception' => ( is => q(ro), isa => q(Exception), required => 1 );
+has 'exception' => ( is => q(ro), isa => q(D_V_Exception), required => 1 );
 has 'method'    => ( is => q(ro), isa => q(Str), required => 1 );
 has 'pattern'   => ( is => q(rw), isa => q(Str) );
 
@@ -67,7 +67,7 @@ Data::Validation::Utils - Code and attribute reuse
 
 =head1 Version
 
-0.4.$Revision: 107 $
+0.5.$Revision: 120 $
 
 =head1 Synopsis
 

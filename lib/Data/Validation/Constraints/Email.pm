@@ -1,12 +1,12 @@
 package Data::Validation::Constraints::Email;
 
-# @(#)$Id: Email.pm 107 2009-06-24 18:42:27Z pjf $
+# @(#)$Id: Email.pm 120 2010-09-22 01:32:19Z pjf $
 
 use strict;
 use Moose;
 use Email::Valid;
 
-use version; our $VERSION = qv( sprintf '0.4.%d', q$Rev: 107 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.5.%d', q$Rev: 120 $ =~ /\d+/gmx );
 
 extends 'Data::Validation::Constraints';
 
