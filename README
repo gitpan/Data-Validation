@@ -2,7 +2,7 @@ Name
     Data::Validation - Filter and check data values
 
 Version
-    0.5.$Rev: 120 $
+    0.6.$Rev: 123 $
 
 Synopsis
        use Data::Validation;

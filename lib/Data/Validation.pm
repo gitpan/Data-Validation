@@ -1,10 +1,10 @@
-# @(#)$Id: Validation.pm 120 2010-09-22 01:32:19Z pjf $
+# @(#)$Id: Validation.pm 123 2010-09-22 19:31:48Z pjf $
 
 package Data::Validation;
 
 use strict;
 use namespace::autoclean;
-use version; our $VERSION = qv( sprintf '0.5.%d', q$Rev: 120 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.6.%d', q$Rev: 123 $ =~ /\d+/gmx );
 
 use Data::Validation::Constraints;
 use Data::Validation::Filters;
@@ -165,7 +165,7 @@ Data::Validation - Filter and check data values
 
 =head1 Version
 
-0.5.$Rev: 120 $
+0.6.$Rev: 123 $
 
 =head1 Synopsis
 
