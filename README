@@ -2,7 +2,7 @@ Name
     Data::Validation - Filter and check data values
 
 Version
-    0.6.$Rev: 123 $
+    0.6.$Rev: 132 $
 
 Synopsis
        use Data::Validation;
@@ -112,7 +112,7 @@ Author
     Peter Flanigan, "<Support at RoxSoft.co.uk>"
 
 License and Copyright
-    Copyright (c) 2008 Peter Flanigan. All rights reserved
+    Copyright (c) 2010 Peter Flanigan. All rights reserved
 
     This program is free software; you can redistribute it and/or modify it
     under the same terms as Perl itself. See perlartistic

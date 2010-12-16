@@ -1,27 +1,41 @@
-# @(#)$Id: Build.PL 123 2010-09-22 19:31:48Z pjf $
+# @(#)$Id: Build.PL 132 2010-12-16 04:03:46Z pjf $
 
 use strict;
 use warnings;
-use version; our $VERSION = qv( sprintf '0.6.%d', q$Rev: 123 $ =~ /\d+/gmx );
+
+use English qw(-no_match_vars);
+
+sub testing { !! ($ENV{AUTOMATED_TESTING} || $ENV{PERL_CR_SMOKER_CURRENT}
+              || ($ENV{PERL5OPT} || q()) =~ m{ CPAN-Reporter }mx
+              || ($ENV{PERL5LIB} || q()) =~ m{ \A /home/sand }mx) }
+
+sub whimper { print {*STDOUT} $_[ 0 ]."\n"; exit 0 }
+
+BEGIN {
+   eval { require 5.008; }; $EVAL_ERROR and whimper 'Perl minimum 5.8';
+}
+
+use version; our $VERSION = qv( sprintf '0.6.%d', q$Rev: 132 $ =~ /\d+/gmx );
 
 use Module::Build;
 
 Module::Build->new
    ( add_to_cleanup     => [ 'Debian_CPANTS.txt', 'Data-Validation-*',
-                             'Makefile', 'pm_to_blib',
                              map { ( '*/' x $_ ) . '*~' } 0..5 ],
-     build_requires     => { 'Exception::Class'    => q(1.23),
-                             'Class::Null'         => q(1.09),
-                             'Test::More'          => q(0.74),
-                             'Test::Pod'           => q(1.26), },
-     configure_requires => { 'ExtUtils::MakeMaker' => q(6.42),
-                             'version'             => q(0.74), },
-     create_readme      => 1,
+     build_requires     => { 'Exception::Class' => 1.23,
+                             'Class::Null'      => 1.09,
+                             'Test::More'       => 0.74,
+                             'Test::Pod'        => 1.26, },
+     configure_requires => { 'Module::Build'    => 0.32,
+                             'version'          => 0.74, },
+     create_license     => 1,
      create_packlist    => 0,
+     create_readme      => 1,
      dist_version_from  => q(lib/Data/Validation.pm),
      license            => q(perl),
      module_name        => q(Data::Validation),
-     no_index           => { directory => [ q(t) ] },
+     no_index           => { directory  => [ qw(t) ], },
+     notes              => { stop_tests => testing,   },
      recommends         => { 'CatalystX::Usul::Time' => q(0.3.0), },
      requires           => {
         'perl'                         => q(5.008),
@@ -37,7 +51,7 @@ Module::Build->new
         'Moose::Util::TypeConstraints' => q(0.21),
         'Regexp::Common'               => q(2.120),
         'Scalar::Util'                 => q(1.19), },
-     sign               => 1, )->create_build_script();
+     sign               => 1, )->create_build_script;
 
 # Local Variables:
 # mode: perl

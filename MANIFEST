@@ -10,11 +10,11 @@ lib/Data/Validation/Constraints/Postcode.pm
 lib/Data/Validation/Constraints/URL.pm
 lib/Data/Validation/Filters.pm
 lib/Data/Validation/Utils.pm
-LICENSE
 MANIFEST			This list of files
-META.yml
 README
 t/01always_pass.t
 t/02pod.t
 t/10base.t
+LICENSE
+META.yml
 SIGNATURE    Added here by Module::Build

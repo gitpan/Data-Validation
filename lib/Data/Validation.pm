@@ -1,10 +1,10 @@
-# @(#)$Id: Validation.pm 123 2010-09-22 19:31:48Z pjf $
+# @(#)$Id: Validation.pm 132 2010-12-16 04:03:46Z pjf $
 
 package Data::Validation;
 
 use strict;
 use namespace::autoclean;
-use version; our $VERSION = qv( sprintf '0.6.%d', q$Rev: 123 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.6.%d', q$Rev: 132 $ =~ /\d+/gmx );
 
 use Data::Validation::Constraints;
 use Data::Validation::Filters;
@@ -165,7 +165,7 @@ Data::Validation - Filter and check data values
 
 =head1 Version
 
-0.6.$Rev: 123 $
+0.6.$Rev: 132 $
 
 =head1 Synopsis
 
@@ -304,7 +304,7 @@ Peter Flanigan, C<< <Support at RoxSoft.co.uk> >>
 
 =head1 License and Copyright
 
-Copyright (c) 2008 Peter Flanigan. All rights reserved
+Copyright (c) 2010 Peter Flanigan. All rights reserved
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself. See L<perlartistic>

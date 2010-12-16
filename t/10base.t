@@ -1,20 +1,21 @@
-# @(#)$Id: 10base.t 123 2010-09-22 19:31:48Z pjf $
+# @(#)$Id: 10base.t 130 2010-10-10 12:59:21Z pjf $
 
 use strict;
 use warnings;
-use version; our $VERSION = qv( sprintf '0.6.%d', q$Rev: 123 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.6.%d', q$Rev: 130 $ =~ /\d+/gmx );
 use File::Spec::Functions;
 use FindBin qw( $Bin );
 use lib catdir( $Bin, updir, q(lib) );
 
 use English qw( -no_match_vars );
+use Module::Build;
 use Test::More;
 
 BEGIN {
-   if ($ENV{AUTOMATED_TESTING}  || $ENV{PERL_CR_SMOKER_CURRENT} ||
-       $ENV{PERL5_MINISMOKEBOX} || $ENV{PERL5_YACSMOKE_BASE}) {
-      plan skip_all => q(CPAN Testing stopped);
-   }
+   my $current = eval { Module::Build->current };
+
+   $current and $current->notes->{stop_tests}
+            and plan skip_all => q(CPAN Testing stopped);
 
    plan tests => 50;
 }
