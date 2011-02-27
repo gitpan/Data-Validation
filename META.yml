@@ -22,7 +22,7 @@ no_index:
 provides:
   Data::Validation:
     file: lib/Data/Validation.pm
-    version: 0.6.133
+    version: 0.6.134
   Data::Validation::Constraints:
     file: lib/Data/Validation/Constraints.pm
     version: 0.6.123
@@ -68,4 +68,4 @@ requires:
   version: 0.74
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.6.133
+version: 0.6.134
