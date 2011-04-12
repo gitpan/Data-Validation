@@ -2,35 +2,36 @@ Name
     Data::Validation - Filter and check data values
 
 Version
-    0.6.$Rev: 134 $
+    0.6.$Rev: 141 $
 
 Synopsis
        use Data::Validation;
 
        sub check_field {
-          my ($self, $stash, $id, $value) = @_;
-          my $config = { exception   => q(Exception::Class),
-                         constraints => $stash->{constraints} || {},
-                         fields      => $stash->{fields}      || {},
-                         filters     => $stash->{filters}     || {} };
-          my $dv = eval { Data::Validation->new( %{ $config } ) };
+          my ($self, $config, $id, $value) = @_;
 
-          $self->throw( $EVAL_ERROR ) if ($EVAL_ERROR);
+          my $dv_obj = $self->_build_validation_obj( $config );
 
-          return $dv->check_field( $id, $value );
+          return $dv_obj->check_field( $id, $value );
        }
 
        sub check_form  {
-          my ($self, $stash, $form) = @_;
-          my $config = { exception   => q(Exception::Class),
-                         constraints => $stash->{constraints} || {},
-                         fields      => $stash->{fields}      || {},
-                         filters     => $stash->{filters}     || {} };
-          my $dv = eval { Data::Validation->new( %{ $config } ) };
+          my ($self, $config, $form) = @_;
 
-          $self->throw( $EVAL_ERROR ) if ($EVAL_ERROR);
+          my $dv_obj = $self->_build_validation_obj( $config );
+          my $prefix = $config->{form_name}.q(.);
 
-          return $dv->check_form( $stash->{form_prefix}, $form );
+          return $dv_obj->check_form( $prefix, $form );
+       }
+
+       sub _build_validation_obj {
+          my ($self, $config) = @_;
+
+          return Data::Validation->new( {
+             exception   => $config->{exception_class} || q(Exception::Class),
+             constraints => $config->{constraints}     || {},
+             fields      => $config->{fields}          || {},
+             filters     => $config->{filters}         || {} } );
        }
 
 Description
@@ -83,6 +84,9 @@ Subroutines/Methods
     *operator* constraint attribute gives the comparison operator which
     defaults to "eq"
 
+    All fields are checked. Multiple error objects are stored, if they
+    occur, in the "args" attribute of the returned error object
+
   check_field
        $value = $dv->check_field( $id, $value );
 
@@ -100,6 +104,7 @@ Dependencies
     Data::Validation::Constraints
     Data::Validation::Filters
     List::Util
+    Try::Tiny
 
 Incompatibilities
     There are no known incompatibilities in this module
@@ -112,7 +117,7 @@ Author
     Peter Flanigan, "<Support at RoxSoft.co.uk>"
 
 License and Copyright
-    Copyright (c) 2010 Peter Flanigan. All rights reserved
+    Copyright (c) 2011 Peter Flanigan. All rights reserved
 
     This program is free software; you can redistribute it and/or modify it
     under the same terms as Perl itself. See perlartistic

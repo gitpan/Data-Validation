@@ -1,10 +1,10 @@
-# @(#)$Id: Filters.pm 123 2010-09-22 19:31:48Z pjf $
+# @(#)$Id: Filters.pm 140 2011-04-06 21:59:55Z pjf $
 
 package Data::Validation::Filters;
 
 use strict;
 use namespace::autoclean;
-use version; our $VERSION = qv( sprintf '0.6.%d', q$Rev: 123 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.6.%d', q$Rev: 140 $ =~ /\d+/gmx );
 
 use Moose;
 
@@ -13,11 +13,9 @@ with q(Data::Validation::Utils);
 has 'replace' => ( is => q(rw), isa => q(Str) );
 
 sub filter {
-   my ($self, $val) = @_; my $method = $self->method; my $class;
+   my ($self, $val) = @_; defined $val or return; my $method = $self->method;
 
-   return unless (defined $val);
-
-   return $self->$method( $val ) if ($self->can( $method ));
+   $self->can( $method ) and return $self->$method( $val );
 
    return $self->_load_class( q(filter), $method )->_filter( $val );
 }
@@ -49,18 +47,15 @@ sub filterLowerCase {
 }
 
 sub filterNonNumeric {
-   my ($self, $val) = @_;
-
-   $val =~ s{ \D+ }{}gmx;
-   return $val;
+   my ($self, $val) = @_; $val =~ s{ \D+ }{}gmx; return $val;
 }
 
 sub filterReplaceRegex {
-   my ($self, $val) = @_; my ($pattern, $replace);
+   my ($self, $val) = @_;
 
-   return $val unless ($pattern = $self->pattern);
+   my $pattern = $self->pattern or return $val;
+   my $replace = defined $self->replace ? $self->replace : q();
 
-   $replace = defined $self->replace ? $self->replace : q();
    $val =~ s{ $pattern }{$replace}gmx;
    return $val;
 }
@@ -77,10 +72,7 @@ sub filterUpperCase {
 }
 
 sub filterWhiteSpace {
-   my ($self, $val) = @_;
-
-   $val =~ s{ \s+ }{}gmx;
-   return $val;
+   my ($self, $val) = @_; $val =~ s{ \s+ }{}gmx; return $val;
 }
 
 __PACKAGE__->meta->make_immutable;
@@ -99,7 +91,7 @@ Data::Validation::Filters - Filter data values
 
 =head1 Version
 
-0.6.$Revision: 123 $
+0.6.$Revision: 140 $
 
 =head1 Synopsis
 

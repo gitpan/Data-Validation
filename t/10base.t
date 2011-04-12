@@ -1,8 +1,8 @@
-# @(#)$Id: 10base.t 130 2010-10-10 12:59:21Z pjf $
+# @(#)$Id: 10base.t 140 2011-04-06 21:59:55Z pjf $
 
 use strict;
 use warnings;
-use version; our $VERSION = qv( sprintf '0.6.%d', q$Rev: 130 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.6.%d', q$Rev: 140 $ =~ /\d+/gmx );
 use File::Spec::Functions;
 use FindBin qw( $Bin );
 use lib catdir( $Bin, updir, q(lib) );
@@ -15,7 +15,7 @@ BEGIN {
    my $current = eval { Module::Build->current };
 
    $current and $current->notes->{stop_tests}
-            and plan skip_all => q(CPAN Testing stopped);
+            and plan skip_all => $current->notes->{stop_tests};
 
    plan tests => 50;
 }
@@ -147,11 +147,11 @@ ok( !$e->error, q(Valid form) );
 $vals->{field_name5} = q(not_the_same_as_field4);
 eval { $validator->check_form( q(subr_), $vals ) };
 $e = TestException->caught() || Class::Null->new();
-ok( $e->error eq 'Field [_1] [_2] field [_3]', q(Non matching fields) );
+ok( $e->args->[0] eq 'Field [_1] [_2] field [_3]', q(Non matching fields) );
 
-ok( $e->args->[0] eq q(field_name5)
- && $e->args->[1] eq q(eq)
- && $e->args->[2] eq q(field_name4), q(Field comparison args) );
+ok( $e->args->[0]->args->[0] eq q(field_name5)
+ && $e->args->[0]->args->[1] eq q(eq)
+ && $e->args->[0]->args->[2] eq q(field_name4), q(Field comparison args) );
 
 $f->{constraints}->{subr_field_name5}->{operator} = q(ne);
 eval { $validator->check_form( q(subr_), $vals ) };
@@ -163,14 +163,14 @@ $vals->{field_name5} = q(qwe);
 delete $f->{constraints}->{subr_field_name5}->{other_field};
 eval { $validator->check_form( q(subr_), $vals ) };
 $e = TestException->caught() || Class::Null->new();
-ok( $e->error eq 'Constraint [_1] has no comparison field',
+ok( $e->args->[0]->error eq 'Constraint [_1] has no comparison field',
     q(No comparison field) );
 
 $f->{constraints}->{subr_field_name5}->{other_field} = q(field_name4);
 $vals->{field_name2} = q(tooeasy);
 eval { $validator->check_form( q(subr_), $vals ) };
 $e = TestException->caught() || Class::Null->new();
-ok( $e->error eq q(eValidPassword), q(Invalid form) );
+ok( $e->args->[0]->error eq q(eValidPassword), q(Invalid form) );
 
 $f->{fields}->{test}->{validate} = q(isMatchingRegex);
 $f->{constraints}->{test} = { pattern => q(\A \d+ \z) };
