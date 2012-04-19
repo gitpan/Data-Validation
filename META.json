@@ -4,7 +4,7 @@
       "Peter Flanigan, C<< <Support at RoxSoft.co.uk> >>"
    ],
    "dynamic_config" : 1,
-   "generated_by" : "Module::Build version 0.38, CPAN::Meta::Converter version 2.110580",
+   "generated_by" : "Module::Build version 0.38, CPAN::Meta::Converter version 2.112621",
    "license" : [
       "perl_5"
    ],
@@ -37,22 +37,19 @@
       },
       "runtime" : {
          "recommends" : {
-            "CatalystX::Usul::Time" : "v0.3.0"
+            "CatalystX::Usul::Time" : "v0.7.0"
          },
          "requires" : {
-            "Class::MOP" : "0.53",
             "Email::Valid" : "0.179",
             "LWP::UserAgent" : "2.036",
             "List::Util" : "1.19",
-            "Moose" : "0.38",
-            "Moose::Role" : "0.55",
-            "Moose::Util::TypeConstraints" : "0.21",
+            "Moose" : "2.0402",
             "Regexp::Common" : "2.12",
             "Scalar::Util" : "1.19",
             "Try::Tiny" : "0.09",
             "charnames" : "1.05",
             "namespace::autoclean" : "0.05",
-            "perl" : "5.008",
+            "perl" : "5.01",
             "version" : "0.74"
          }
       }
@@ -60,43 +57,43 @@
    "provides" : {
       "Data::Validation" : {
          "file" : "lib/Data/Validation.pm",
-         "version" : "v0.6.141"
+         "version" : "v0.7.150"
       },
       "Data::Validation::Constraints" : {
          "file" : "lib/Data/Validation/Constraints.pm",
-         "version" : "v0.6.123"
+         "version" : "v0.7.150"
       },
       "Data::Validation::Constraints::Date" : {
          "file" : "lib/Data/Validation/Constraints/Date.pm",
-         "version" : "v0.6.123"
+         "version" : "v0.7.150"
       },
       "Data::Validation::Constraints::Email" : {
          "file" : "lib/Data/Validation/Constraints/Email.pm",
-         "version" : "v0.6.123"
+         "version" : "v0.7.150"
       },
       "Data::Validation::Constraints::Password" : {
          "file" : "lib/Data/Validation/Constraints/Password.pm",
-         "version" : "v0.6.123"
+         "version" : "v0.7.150"
       },
       "Data::Validation::Constraints::Path" : {
          "file" : "lib/Data/Validation/Constraints/Path.pm",
-         "version" : "v0.6.123"
+         "version" : "v0.7.150"
       },
       "Data::Validation::Constraints::Postcode" : {
          "file" : "lib/Data/Validation/Constraints/Postcode.pm",
-         "version" : "v0.6.123"
+         "version" : "v0.7.150"
       },
       "Data::Validation::Constraints::URL" : {
          "file" : "lib/Data/Validation/Constraints/URL.pm",
-         "version" : "v0.6.123"
+         "version" : "v0.7.150"
       },
       "Data::Validation::Filters" : {
          "file" : "lib/Data/Validation/Filters.pm",
-         "version" : "v0.6.140"
+         "version" : "v0.7.150"
       },
       "Data::Validation::Utils" : {
          "file" : "lib/Data/Validation/Utils.pm",
-         "version" : "v0.6.140"
+         "version" : "v0.7.150"
       }
    },
    "release_status" : "stable",
@@ -109,5 +106,5 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "0.6.141"
+   "version" : "0.7.150"
 }

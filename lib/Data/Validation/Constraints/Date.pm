@@ -1,9 +1,9 @@
-# @(#)$Id: Date.pm 123 2010-09-22 19:31:48Z pjf $
+# @(#)$Id: Date.pm 150 2012-04-19 15:25:56Z pjf $
 
 package Data::Validation::Constraints::Date;
 
 use strict;
-use version; our $VERSION = qv( sprintf '0.6.%d', q$Rev: 123 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.7.%d', q$Rev: 150 $ =~ /\d+/gmx );
 
 use Moose;
 use CatalystX::Usul::Time qw(str2time);

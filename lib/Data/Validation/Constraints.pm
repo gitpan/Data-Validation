@@ -1,11 +1,11 @@
-# @(#)$Id: Constraints.pm 123 2010-09-22 19:31:48Z pjf $
+# @(#)$Id: Constraints.pm 150 2012-04-19 15:25:56Z pjf $
 
 package Data::Validation::Constraints;
 
 use strict;
 use charnames qw(:full);
 use namespace::autoclean;
-use version; our $VERSION = qv( sprintf '0.6.%d', q$Rev: 123 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.7.%d', q$Rev: 150 $ =~ /\d+/gmx );
 
 use Moose;
 use Regexp::Common qw(number);
@@ -13,13 +13,13 @@ use Scalar::Util   qw(looks_like_number);
 
 with q(Data::Validation::Utils);
 
-has 'error'      => ( is => q(rw), isa => q(Str) );
-has 'max_length' => ( is => q(rw), isa => q(Int) );
-has 'max_value'  => ( is => q(rw), isa => q(Int) );
-has 'min_length' => ( is => q(rw), isa => q(Int) );
-has 'min_value'  => ( is => q(rw), isa => q(Int) );
-has 'required'   => ( is => q(rw), isa => q(Bool) );
-has 'value'      => ( is => q(rw), isa => q(Any) );
+has 'error'      => is => q(rw), isa => q(Str);
+has 'max_length' => is => q(rw), isa => q(Int);
+has 'max_value'  => is => q(rw), isa => q(Int);
+has 'min_length' => is => q(rw), isa => q(Int);
+has 'min_value'  => is => q(rw), isa => q(Int);
+has 'required'   => is => q(rw), isa => q(Bool);
+has 'value'      => is => q(rw), isa => q(Any);
 
 sub validate {
    my ($self, $val) = @_; my $method = $self->method; my $class;
@@ -149,7 +149,7 @@ Data::Validation::Constraints - Test data values for conformance with constraint
 
 =head1 Version
 
-0.6.$Revision: 123 $
+0.7.$Revision: 150 $
 
 =head1 Synopsis
 
