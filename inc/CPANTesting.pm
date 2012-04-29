@@ -1,21 +1,22 @@
-# @(#)$Id: CPANTesting.pm 148 2012-04-09 09:46:50Z pjf $
+# @(#)$Id: CPANTesting.pm 151 2012-04-29 10:47:45Z pjf $
 
 package CPANTesting;
 
 use strict;
 use warnings;
 
-my $uname = qx(uname -a);
+my $osname = lc $^O; my $uname = qx(uname -a);
 
 sub broken_toolchain {
    return 0;
 }
 
 sub exceptions {
-   lc $^O eq q(cygwin)            and return 'Cygwin not supported';
-   lc $^O eq q(mirbsd)            and return 'Mirbsd not supported';
-   lc $^O eq q(mswin32)           and return 'Mswin  not supported';
-   lc $^O eq q(netbsd)            and return 'Netbsd not supported';
+   $osname eq q(cygwin)           and return 'Cygwin not supported';
+   $osname eq q(mirbsd)           and return 'Mirbsd not supported';
+   $osname eq q(mswin32)          and return 'Mswin  not supported';
+   $osname eq q(netbsd)           and return 'Netbsd not supported';
+   $uname  eq q(k83)              and return 'Stopped andk k83';
    $uname =~ m{ profvince.com }mx and return 'Stopped vpit';
    return 0;
 }
