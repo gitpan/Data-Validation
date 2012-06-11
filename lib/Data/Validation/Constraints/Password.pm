@@ -1,11 +1,11 @@
 package Data::Validation::Constraints::Password;
 
-# @(#)$Id: Password.pm 150 2012-04-19 15:25:56Z pjf $
+# @(#)$Id: Password.pm 153 2012-06-11 17:07:21Z pjf $
 
 use strict;
 use Moose;
 
-use version; our $VERSION = qv( sprintf '0.7.%d', q$Rev: 150 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.8.%d', q$Rev: 153 $ =~ /\d+/gmx );
 
 extends 'Data::Validation::Constraints';
 

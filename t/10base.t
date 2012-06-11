@@ -1,8 +1,8 @@
-# @(#)$Id: 10base.t 150 2012-04-19 15:25:56Z pjf $
+# @(#)$Id: 10base.t 153 2012-06-11 17:07:21Z pjf $
 
 use strict;
 use warnings;
-use version; our $VERSION = qv( sprintf '0.7.%d', q$Rev: 150 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.8.%d', q$Rev: 153 $ =~ /\d+/gmx );
 use File::Spec::Functions;
 use FindBin qw( $Bin );
 use lib catdir( $Bin, updir, q(lib) );
@@ -194,6 +194,12 @@ is test_val( $f, q(test), q(hello world) ), q(HELLO WORLD), 'Filter UpperCase';
 $f->{fields}->{test}->{filters} = q(filterWhiteSpace);
 $f->{constraints}->{test} = { pattern => q(\A \d+ \z) };
 is test_val( $f, q(test), q(123 456) ), 123456, 'Filter WhiteSpace';
+
+delete $f->{constraints}->{test};
+$f->{fields}->{test}->{filters} = q(filterZeroLength);
+is test_val( $f, q(test), q() ), undef, 'Filter ZeroLength - positive';
+delete $f->{fields}->{test}->{filters};
+is test_val( $f, q(test), q() ), q(), 'Filter ZeroLength - negative';
 
 done_testing;
 
