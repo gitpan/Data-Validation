@@ -37,7 +37,7 @@
       },
       "runtime" : {
          "recommends" : {
-            "CatalystX::Usul::Time" : "v0.7.0"
+            "Class::Usul::Time" : "v0.1.0"
          },
          "requires" : {
             "Email::Valid" : "0.179",
@@ -57,7 +57,7 @@
    "provides" : {
       "Data::Validation" : {
          "file" : "lib/Data/Validation.pm",
-         "version" : "v0.8.153"
+         "version" : "v0.8.155"
       },
       "Data::Validation::Constraints" : {
          "file" : "lib/Data/Validation/Constraints.pm",
@@ -106,5 +106,5 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "0.8.153"
+   "version" : "0.8.155"
 }

@@ -1,25 +1,31 @@
-# @(#)$Id: CPANTesting.pm 152 2012-05-02 14:07:33Z pjf $
+# @(#)$Id: CPANTesting.pm 155 2012-09-06 00:21:24Z pjf $
 
 package CPANTesting;
 
 use strict;
 use warnings;
 
-my $osname = lc $^O; my $uname = lc qx(uname -a);
+my $osname = lc $^O; my $uname = qx(uname -a);
 
-sub broken_toolchain {
+sub should_abort {
    return 0;
 }
 
-sub exceptions {
-   $osname eq q(cygwin)           and return 'Cygwin not supported';
-   $osname eq q(mirbsd)           and return 'Mirbsd not supported';
-   $osname eq q(mswin32)          and return 'Mswin  not supported';
-   $osname eq q(netbsd)           and return 'Netbsd not supported';
-   $uname =~ m{ linux \s+ k83 }mx and return 'Stopped andk k83';
-   $uname =~ m{ profvince.com }mx and return 'Stopped vpit';
+sub test_exceptions {
+   my $p = shift; __is_testing() or return 0;
+
+   $p->{stop_tests} and return 'CPAN Testing stopped in Build.PL';
+
+   $osname eq q(mirbsd)            and return 'Mirbsd OS unsupported';
+   $uname  =~ m{ linux \s+ k83 }mx and return 'Stopped andk k83';
+   $uname  =~ m{ profvince.com }mx and return 'Stopped vpit profvince';
    return 0;
 }
+
+# Private functions
+
+sub __is_testing { !! ($ENV{AUTOMATED_TESTING} || $ENV{PERL_CR_SMOKER_CURRENT}
+                   || ($ENV{PERL5OPT} || q()) =~ m{ CPAN-Reporter }mx) }
 
 1;
 
