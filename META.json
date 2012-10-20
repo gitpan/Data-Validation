@@ -57,43 +57,43 @@
    "provides" : {
       "Data::Validation" : {
          "file" : "lib/Data/Validation.pm",
-         "version" : "v0.8.155"
+         "version" : "v0.9.160"
       },
       "Data::Validation::Constraints" : {
          "file" : "lib/Data/Validation/Constraints.pm",
-         "version" : "v0.8.153"
+         "version" : "v0.9.160"
       },
       "Data::Validation::Constraints::Date" : {
          "file" : "lib/Data/Validation/Constraints/Date.pm",
-         "version" : "v0.8.153"
+         "version" : "v0.9.160"
       },
       "Data::Validation::Constraints::Email" : {
          "file" : "lib/Data/Validation/Constraints/Email.pm",
-         "version" : "v0.8.153"
+         "version" : "v0.9.160"
       },
       "Data::Validation::Constraints::Password" : {
          "file" : "lib/Data/Validation/Constraints/Password.pm",
-         "version" : "v0.8.153"
+         "version" : "v0.9.160"
       },
       "Data::Validation::Constraints::Path" : {
          "file" : "lib/Data/Validation/Constraints/Path.pm",
-         "version" : "v0.8.153"
+         "version" : "v0.9.160"
       },
       "Data::Validation::Constraints::Postcode" : {
          "file" : "lib/Data/Validation/Constraints/Postcode.pm",
-         "version" : "v0.8.153"
+         "version" : "v0.9.160"
       },
       "Data::Validation::Constraints::URL" : {
          "file" : "lib/Data/Validation/Constraints/URL.pm",
-         "version" : "v0.8.153"
+         "version" : "v0.9.160"
       },
       "Data::Validation::Filters" : {
          "file" : "lib/Data/Validation/Filters.pm",
-         "version" : "v0.8.153"
+         "version" : "v0.9.160"
       },
       "Data::Validation::Utils" : {
          "file" : "lib/Data/Validation/Utils.pm",
-         "version" : "v0.8.153"
+         "version" : "v0.9.160"
       }
    },
    "release_status" : "stable",
@@ -106,5 +106,5 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "0.8.155"
+   "version" : "0.9.160"
 }

@@ -1,11 +1,11 @@
-# @(#)$Id: CPANTesting.pm 155 2012-09-06 00:21:24Z pjf $
+# @(#)$Id: CPANTesting.pm 160 2012-10-20 14:39:27Z pjf $
 
 package CPANTesting;
 
 use strict;
 use warnings;
 
-my $osname = lc $^O; my $uname = qx(uname -a);
+use Sys::Hostname; my $host = lc hostname; my $osname = lc $^O;
 
 sub should_abort {
    return 0;
@@ -16,14 +16,15 @@ sub test_exceptions {
 
    $p->{stop_tests} and return 'CPAN Testing stopped in Build.PL';
 
-   $osname eq q(mirbsd)            and return 'Mirbsd OS unsupported';
-   $uname  =~ m{ linux \s+ k83 }mx and return 'Stopped andk k83';
-   $uname  =~ m{ profvince.com }mx and return 'Stopped vpit profvince';
+   $osname eq q(mirbsd) and return 'Mirbsd OS unsupported';
+   $osname eq q(linux)  and ($ENV{PATH} || q()) =~ m{ \A /home/sand/bin }msx
+                        and return 'Stopped andk linux - broken resolver';
    return 0;
 }
 
 # Private functions
 
+# Is this an attempted install on a CPAN testing platform?
 sub __is_testing { !! ($ENV{AUTOMATED_TESTING} || $ENV{PERL_CR_SMOKER_CURRENT}
                    || ($ENV{PERL5OPT} || q()) =~ m{ CPAN-Reporter }mx) }
 

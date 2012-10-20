@@ -1,10 +1,10 @@
-# @(#)$Id: Utils.pm 153 2012-06-11 17:07:21Z pjf $
+# @(#)$Id: Utils.pm 160 2012-10-20 14:39:27Z pjf $
 
 package Data::Validation::Utils;
 
 use strict;
 use namespace::autoclean;
-use version; our $VERSION = qv( sprintf '0.8.%d', q$Rev: 153 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.9.%d', q$Rev: 160 $ =~ /\d+/gmx );
 
 use Moose::Role;
 use Moose::Util::TypeConstraints;
@@ -69,7 +69,7 @@ Data::Validation::Utils - Code and attribute reuse
 
 =head1 Version
 
-0.8.$Revision: 153 $
+0.9.$Revision: 160 $
 
 =head1 Synopsis
 

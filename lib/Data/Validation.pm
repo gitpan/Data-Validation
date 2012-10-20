@@ -1,10 +1,10 @@
-# @(#)$Id: Validation.pm 155 2012-09-06 00:21:24Z pjf $
+# @(#)$Id: Validation.pm 160 2012-10-20 14:39:27Z pjf $
 
 package Data::Validation;
 
 use strict;
 use namespace::autoclean;
-use version; our $VERSION = qv( sprintf '0.8.%d', q$Rev: 155 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.9.%d', q$Rev: 160 $ =~ /\d+/gmx );
 
 use Moose;
 use Data::Validation::Constraints;
@@ -131,7 +131,9 @@ sub _validate {
                     catch { $self->exception->throw( $_ ) };
 
    unless ($constraint->validate( $value )) {
-      my $name = $self->fields->{ $id }->{fhelp} || $id;
+      my $name = $self->fields->{ $id }->{label}
+              || $self->fields->{ $id }->{fhelp} # Deprecated
+              || $id;
 
       $error or ($error = $method) =~ s{ \A is }{e}imx;
       $self->exception->throw( error => $error, args => [ $name, $value ] );
@@ -166,7 +168,7 @@ Data::Validation - Filter and check data values
 
 =head1 Version
 
-0.8.$Rev: 155 $
+0.9.$Rev: 160 $
 
 =head1 Synopsis
 

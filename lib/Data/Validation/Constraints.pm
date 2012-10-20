@@ -1,11 +1,11 @@
-# @(#)$Id: Constraints.pm 153 2012-06-11 17:07:21Z pjf $
+# @(#)$Id: Constraints.pm 160 2012-10-20 14:39:27Z pjf $
 
 package Data::Validation::Constraints;
 
 use strict;
 use charnames qw(:full);
 use namespace::autoclean;
-use version; our $VERSION = qv( sprintf '0.8.%d', q$Rev: 153 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.9.%d', q$Rev: 160 $ =~ /\d+/gmx );
 
 use Moose;
 use Regexp::Common qw(number);
@@ -141,7 +141,7 @@ Data::Validation::Constraints - Test data values for conformance with constraint
 
 =head1 Version
 
-0.8.$Revision: 153 $
+0.9.$Revision: 160 $
 
 =head1 Synopsis
 
