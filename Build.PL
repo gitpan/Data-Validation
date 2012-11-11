@@ -1,9 +1,9 @@
-# @(#)$Id: Build.PL 160 2012-10-20 14:39:27Z pjf $
+# @(#)$Id: Build.PL 163 2012-11-11 19:02:23Z pjf $
 
 use strict;
 use warnings;
 use inc::Bob; # Module::Build subclass
-use version; our $VERSION = qv( sprintf '0.9.%d', q$Rev: 160 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.9.%d', q$Rev: 163 $ =~ /\d+/gmx );
 
 Bob->new( {
    module     => q(Data::Validation),
@@ -30,6 +30,8 @@ Bob->new( {
 } )->create_build_script; # Goal!
 
 # Local Variables:
+# eval: (load-project-state "data-validation")
 # mode: perl
+# tab-title: Validation
 # tab-width: 3
 # End:
