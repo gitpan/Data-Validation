@@ -1,5 +1,5 @@
-# @(#)$Id: CPANTesting.pm 163 2012-11-11 19:02:23Z pjf $
-# Bob-Version: 1.6
+# @(#)$Id: CPANTesting.pm 166 2012-11-13 20:23:01Z pjf $
+# Bob-Version: 1.7
 
 package CPANTesting;
 

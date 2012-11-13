@@ -2,6 +2,7 @@ Build.PL
 Changes
 inc/Bob.pm
 inc/CPANTesting.pm
+inc/SubClass.pm
 lib/Data/Validation.pm
 lib/Data/Validation/Constraints.pm
 lib/Data/Validation/Constraints/Date.pm

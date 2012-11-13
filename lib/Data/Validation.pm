@@ -1,10 +1,10 @@
-# @(#)$Id: Validation.pm 164 2012-11-11 19:30:36Z pjf $
+# @(#)$Id: Validation.pm 166 2012-11-13 20:23:01Z pjf $
 
 package Data::Validation;
 
 use strict;
 use namespace::autoclean;
-use version; our $VERSION = qv( sprintf '0.9.%d', q$Rev: 164 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.9.%d', q$Rev: 166 $ =~ /\d+/gmx );
 
 use Moose;
 use Data::Validation::Constraints;
@@ -94,7 +94,10 @@ sub _compare_fields {
             ? $self->_operators->{ $op }->( $lhs, $rhs ) : 0;
 
    unless ($bool) {
-      my $error = $constraint->{error} || 'Field [_1] [_2] field [_3]';
+      my $error = $constraint->{error} || 'Field [_1] does not [_2] field [_3]';
+
+      $lhs_name = $self->fields->{ $prefix.$lhs_name }->{label} || $lhs_name;
+      $rhs_name = $self->fields->{ $prefix.$rhs_name }->{label} || $rhs_name;
 
       $self->exception->throw( error => $error,
                                args  => [ $lhs_name, $op, $rhs_name ] );
@@ -168,7 +171,7 @@ Data::Validation - Filter and check data values
 
 =head1 Version
 
-0.9.$Rev: 164 $
+0.9.$Rev: 166 $
 
 =head1 Synopsis
 
@@ -328,4 +331,3 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE
 # mode: perl
 # tab-width: 3
 # End:
-
