@@ -1,10 +1,10 @@
-# @(#)$Id: Validation.pm 166 2012-11-13 20:23:01Z pjf $
+# @(#)$Id: Validation.pm 168 2012-11-22 05:20:15Z pjf $
 
 package Data::Validation;
 
 use strict;
 use namespace::autoclean;
-use version; our $VERSION = qv( sprintf '0.9.%d', q$Rev: 166 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.9.%d', q$Rev: 168 $ =~ /\d+/gmx );
 
 use Moose;
 use Data::Validation::Constraints;
@@ -48,7 +48,7 @@ sub check_form {
       catch { push @errors, $_ };
    }
 
-   @errors and $self->exception->throw( error => 'Form validation errors',
+   @errors and $self->exception->throw( error => 'Validation errors',
                                         args  => \@errors );
    return $form;
 }
@@ -171,7 +171,7 @@ Data::Validation - Filter and check data values
 
 =head1 Version
 
-0.9.$Rev: 166 $
+0.9.$Rev: 168 $
 
 =head1 Synopsis
 
@@ -331,3 +331,4 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE
 # mode: perl
 # tab-width: 3
 # End:
+

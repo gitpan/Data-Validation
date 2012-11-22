@@ -25,7 +25,7 @@ no_index:
 provides:
   Data::Validation:
     file: lib/Data/Validation.pm
-    version: v0.9.166
+    version: v0.9.168
   Data::Validation::Constraints:
     file: lib/Data/Validation/Constraints.pm
     version: v0.9.160
@@ -71,4 +71,4 @@ resources:
   bugtracker: http://rt.cpan.org/NoAuth/Bugs.html?Dist=Data-Validation
   homepage: http://www.roxsoft.co.uk
   license: http://dev.perl.org/licenses/
-version: 0.9.166
+version: 0.9.168

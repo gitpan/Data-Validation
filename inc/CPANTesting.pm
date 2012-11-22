@@ -1,4 +1,4 @@
-# @(#)$Id: CPANTesting.pm 166 2012-11-13 20:23:01Z pjf $
+# @(#)$Id: CPANTesting.pm 168 2012-11-22 05:20:15Z pjf $
 # Bob-Version: 1.7
 
 package CPANTesting;
@@ -21,11 +21,13 @@ sub test_exceptions {
 
    $p->{stop_tests} and return 'CPAN Testing stopped in Build.PL';
 
-   $osname eq q(mirbsd) and return 'Mirbsd  OS unsupported';
-   $osname eq q(linux)  and $host eq q(k83)
+   $osname eq q(mirbsd)  and return 'Mirbsd  OS unsupported';
+   $osname eq q(linux)   and $host =~ m{ k83 }msx
       and return "Stopped andk ${osname} ${host} - broken resolver";
-   $osname eq q(linux)  and $host eq q(grosics)
+   $osname eq q(linux)   and $host =~ m{ grosics }msx
       and return "Stopped grahmac ${osname} ${host} - broken resolver";
+   $osname eq q(openbsd) and $host =~ m{ minimunch }msx
+      and return "Stopped jlavallee ${osname} ${host} - broken resolver";
    return 0;
 }
 
