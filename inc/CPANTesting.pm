@@ -1,4 +1,4 @@
-# @(#)$Id: CPANTesting.pm 168 2012-11-22 05:20:15Z pjf $
+# @(#)$Id: CPANTesting.pm 169 2012-12-04 20:15:43Z pjf $
 # Bob-Version: 1.7
 
 package CPANTesting;
@@ -23,11 +23,13 @@ sub test_exceptions {
 
    $osname eq q(mirbsd)  and return 'Mirbsd  OS unsupported';
    $osname eq q(linux)   and $host =~ m{ k83 }msx
-      and return "Stopped andk ${osname} ${host} - broken resolver";
+      and return "Stopped andk ${osname} ${host} - ValidHostname";
    $osname eq q(linux)   and $host =~ m{ grosics }msx
-      and return "Stopped grahmac ${osname} ${host} - broken resolver";
+      and return "Stopped grahmac ${osname} ${host} - ValidHostname";
    $osname eq q(openbsd) and $host =~ m{ minimunch }msx
-      and return "Stopped jlavallee ${osname} ${host} - broken resolver";
+      and return "Stopped jlavallee ${osname} ${host} - ValidHostname";
+   $osname eq q(linux)   and $host =~ m{ linux-siva }msx
+      and return "Stopped Kimmel ${osname} ${host} - ValidHostname";
    return 0;
 }
 
