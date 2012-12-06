@@ -57,7 +57,7 @@
    "provides" : {
       "Data::Validation" : {
          "file" : "lib/Data/Validation.pm",
-         "version" : "v0.9.169"
+         "version" : "v0.9.171"
       },
       "Data::Validation::Constraints" : {
          "file" : "lib/Data/Validation/Constraints.pm",
@@ -106,5 +106,5 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "0.9.169"
+   "version" : "0.9.171"
 }
