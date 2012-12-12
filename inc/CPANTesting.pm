@@ -1,4 +1,4 @@
-# @(#)$Id: CPANTesting.pm 170 2012-12-06 18:06:18Z pjf $
+# @(#)$Id: CPANTesting.pm 172 2012-12-12 20:12:58Z pjf $
 # Bob-Version: 1.7
 
 package CPANTesting;
@@ -30,7 +30,7 @@ sub test_exceptions {
       and return "Stopped jlavallee ${osname} ${host} - ValidHostname";
    $osname eq q(linux)   and $host =~ m{ linux-siva }msx
       and return "Stopped Kimmel ${osname} ${host} - ValidHostname";
-   $osname eq q(win32)   and $host =~ m{ xpsmoker }msx
+   $osname eq q(mswin32) and $host =~ m{ xpsmoker }msx
       and return "Stopped SZABGAB ${osname} ${host} - ValidHostname";
    return 0;
 }
