@@ -1,10 +1,10 @@
-# @(#)$Id: Validation.pm 172 2012-12-12 20:12:58Z pjf $
+# @(#)$Id: Validation.pm 174 2013-01-23 16:24:25Z pjf $
 
 package Data::Validation;
 
 use strict;
 use namespace::autoclean;
-use version; our $VERSION = qv( sprintf '0.9.%d', q$Rev: 172 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.9.%d', q$Rev: 174 $ =~ /\d+/gmx );
 
 use Moose;
 use Data::Validation::Constraints;
@@ -171,7 +171,7 @@ Data::Validation - Filter and check data values
 
 =head1 Version
 
-0.9.$Rev: 172 $
+0.9.$Rev: 174 $
 
 =head1 Synopsis
 
@@ -302,7 +302,10 @@ None
 
 =head1 Incompatibilities
 
-There are no known incompatibilities in this module
+OpenDNS. I have received reports that hosts configured to use OpenDNS fail the
+C<isValidHostname> test. Apparently OpenDNS causes the core Perl function
+C<gethostbyname> to return it's argument rather than undefined as per the
+documentation
 
 =head1 Bugs and Limitations
 
@@ -316,7 +319,7 @@ Peter Flanigan, C<< <Support at RoxSoft.co.uk> >>
 
 =head1 License and Copyright
 
-Copyright (c) 2012 Peter Flanigan. All rights reserved
+Copyright (c) 2013 Peter Flanigan. All rights reserved
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself. See L<perlartistic>
@@ -331,3 +334,4 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE
 # mode: perl
 # tab-width: 3
 # End:
+

@@ -1,11 +1,11 @@
-# @(#)$Id: Constraints.pm 160 2012-10-20 14:39:27Z pjf $
+# @(#)$Id: Constraints.pm 174 2013-01-23 16:24:25Z pjf $
 
 package Data::Validation::Constraints;
 
 use strict;
 use charnames qw(:full);
 use namespace::autoclean;
-use version; our $VERSION = qv( sprintf '0.9.%d', q$Rev: 160 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.9.%d', q$Rev: 174 $ =~ /\d+/gmx );
 
 use Moose;
 use Regexp::Common qw(number);
@@ -141,7 +141,7 @@ Data::Validation::Constraints - Test data values for conformance with constraint
 
 =head1 Version
 
-0.9.$Revision: 160 $
+0.9.$Revision: 174 $
 
 =head1 Synopsis
 
@@ -334,7 +334,7 @@ Peter Flanigan, C<< <Support at RoxSoft.co.uk> >>
 
 =head1 License and Copyright
 
-Copyright (c) 2008-2012 Peter Flanigan. All rights reserved
+Copyright (c) 2013 Peter Flanigan. All rights reserved
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself. See L<perlartistic>

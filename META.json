@@ -57,11 +57,11 @@
    "provides" : {
       "Data::Validation" : {
          "file" : "lib/Data/Validation.pm",
-         "version" : "v0.9.172"
+         "version" : "v0.9.174"
       },
       "Data::Validation::Constraints" : {
          "file" : "lib/Data/Validation/Constraints.pm",
-         "version" : "v0.9.160"
+         "version" : "v0.9.174"
       },
       "Data::Validation::Constraints::Date" : {
          "file" : "lib/Data/Validation/Constraints/Date.pm",
@@ -89,11 +89,11 @@
       },
       "Data::Validation::Filters" : {
          "file" : "lib/Data/Validation/Filters.pm",
-         "version" : "v0.9.160"
+         "version" : "v0.9.174"
       },
       "Data::Validation::Utils" : {
          "file" : "lib/Data/Validation/Utils.pm",
-         "version" : "v0.9.160"
+         "version" : "v0.9.174"
       }
    },
    "release_status" : "stable",
@@ -106,5 +106,5 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "0.9.172"
+   "version" : "0.9.174"
 }
