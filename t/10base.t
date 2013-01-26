@@ -1,8 +1,8 @@
-# @(#)$Id: 10base.t 174 2013-01-23 16:24:25Z pjf $
+# @(#)$Id: 10base.t 175 2013-01-26 23:29:20Z pjf $
 
 use strict;
 use warnings;
-use version; our $VERSION = qv( sprintf '0.9.%d', q$Rev: 174 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.9.%d', q$Rev: 175 $ =~ /\d+/gmx );
 use File::Spec::Functions;
 use FindBin qw( $Bin );
 use lib catdir( $Bin, updir, q(lib) );
@@ -59,7 +59,8 @@ $f->{fields}->{test}->{validate} = q(isValidHostname);
 
 if ($reason and $reason =~ m{ ValidHostname }msx) { warn "${reason}\n" }
 else {
-   if (test_val( $f, q(test), q(does_not_exist) ) eq q(eValidHostname)) {
+   if (test_val( $f, q(test), q(does_not_exist) ) eq q(eValidHostname) and
+       test_val( $f, q(test), q(does_not_exist.com) ) eq q(eValidHostname)) {
       is test_val( $f, q(test), q(does_not_exist) ), q(eValidHostname),
          'Invalid hostname - does_not_exist';
       is test_val( $f, q(test), q(does_not_exist.com) ), q(eValidHostname),
