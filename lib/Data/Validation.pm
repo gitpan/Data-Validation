@@ -1,10 +1,10 @@
-# @(#)$Id: Validation.pm 175 2013-01-26 23:29:20Z pjf $
+# @(#)$Id: Validation.pm 176 2013-02-10 17:27:58Z pjf $
 
 package Data::Validation;
 
 use strict;
 use namespace::autoclean;
-use version; our $VERSION = qv( sprintf '0.9.%d', q$Rev: 175 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.9.%d', q$Rev: 176 $ =~ /\d+/gmx );
 
 use Moose;
 use Data::Validation::Constraints;
@@ -171,7 +171,7 @@ Data::Validation - Filter and check data values
 
 =head1 Version
 
-0.9.$Rev: 175 $
+0.9.$Rev: 176 $
 
 =head1 Synopsis
 
@@ -334,3 +334,4 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE
 # mode: perl
 # tab-width: 3
 # End:
+

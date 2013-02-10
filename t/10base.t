@@ -1,8 +1,8 @@
-# @(#)$Id: 10base.t 175 2013-01-26 23:29:20Z pjf $
+# @(#)$Id: 10base.t 176 2013-02-10 17:27:58Z pjf $
 
 use strict;
 use warnings;
-use version; our $VERSION = qv( sprintf '0.9.%d', q$Rev: 175 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.9.%d', q$Rev: 176 $ =~ /\d+/gmx );
 use File::Spec::Functions;
 use FindBin qw( $Bin );
 use lib catdir( $Bin, updir, q(lib) );
@@ -55,32 +55,32 @@ $f->{fields}->{test}->{validate} = q(isSimpleText);
 is test_val( $f, q(test), q(*3$%^) ),        q(eSimpleText),  'Not simple text';
 is test_val( $f, q(test), q(this is text) ), q(this is text), 'Simple text';
 
-$f->{fields}->{test}->{validate} = q(isValidHostname);
+SKIP: {
+   $f->{fields}->{test}->{validate} = q(isValidHostname);
 
-if ($reason and $reason =~ m{ ValidHostname }msx) { warn "${reason}\n" }
-else {
-   if (test_val( $f, q(test), q(does_not_exist) ) eq q(eValidHostname) and
-       test_val( $f, q(test), q(does_not_exist.com) ) eq q(eValidHostname)) {
-      is test_val( $f, q(test), q(does_not_exist) ), q(eValidHostname),
-         'Invalid hostname - does_not_exist';
-      is test_val( $f, q(test), q(does_not_exist.com) ), q(eValidHostname),
-         'Invalid hostname - does_not_exist.com';
-      is test_val( $f, q(test), q(does.not.exist.com) ), q(eValidHostname),
-         'Invalid hostname - does.not.exist.com';
-      is test_val( $f, q(test), q(does.not.exist.example.com) ),
-         q(eValidHostname), 'Invalid hostname - does.not.exist.example.com';
-   }
-   else { warn "Broken resolver detected - maybe OpenDNS\n" }
+   (test_val( $f, q(test), q(does_not_exist)     ) eq q(eValidHostname) and
+    test_val( $f, q(test), q(does_not_exist.com) ) eq q(eValidHostname) and
+    test_val( $f, q(test), q(does.not.exist.com) ) eq q(eValidHostname) and
+    test_val( $f, q(test), q(does.not.exist.example.com) ) eq q(eValidHostname))
+      or skip 'valid hostname test - Broken resolver', 8;
+
+   is test_val( $f, q(test), q(does_not_exist) ), q(eValidHostname),
+      'Invalid hostname - does_not_exist';
+   is test_val( $f, q(test), q(does_not_exist.com) ), q(eValidHostname),
+      'Invalid hostname - does_not_exist.com';
+   is test_val( $f, q(test), q(does.not.exist.com) ), q(eValidHostname),
+      'Invalid hostname - does.not.exist.com';
+   is test_val( $f, q(test), q(does.not.exist.example.com) ),
+      q(eValidHostname), 'Invalid hostname - does.not.exist.example.com';
+   is test_val( $f, q(test), q(127.0.0.1) ), q(127.0.0.1),
+      'Valid hostname - 127.0.0.1';
+   is test_val( $f, q(test), q(example.com) ), q(example.com),
+      'Valid hostname - example.com';
+   is test_val( $f, q(test), q(localhost) ), q(localhost),
+      'Valid hostname - localhost';
+   is test_val( $f, q(test), q(google.com) ), q(google.com),
+      'Valid hostname - google.com';
 }
-
-is test_val( $f, q(test), q(127.0.0.1) ), q(127.0.0.1),
-   'Valid hostname - 127.0.0.1';
-is test_val( $f, q(test), q(example.com) ), q(example.com),
-   'Valid hostname - example.com';
-is test_val( $f, q(test), q(localhost) ), q(localhost),
-   'Valid hostname - localhost';
-is test_val( $f, q(test), q(google.com) ), q(google.com),
-   'Valid hostname - google.com';
 
 $f->{fields}->{test}->{validate} = q(isValidIdentifier);
 is test_val( $f, q(test), 1 ),    q(eValidIdentifier), 'Invalid Identifier';
