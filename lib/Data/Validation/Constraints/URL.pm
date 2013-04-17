@@ -1,12 +1,12 @@
 package Data::Validation::Constraints::URL;
 
-# @(#)$Id: URL.pm 160 2012-10-20 14:39:27Z pjf $
+# @(#)$Id: URL.pm 179 2013-04-17 19:44:27Z pjf $
 
 use strict;
 use Moose;
 use LWP::UserAgent;
 
-use version; our $VERSION = qv( sprintf '0.9.%d', q$Rev: 160 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.10.%d', q$Rev: 179 $ =~ /\d+/gmx );
 
 extends 'Data::Validation::Constraints';
 

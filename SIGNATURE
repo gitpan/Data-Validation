@@ -14,38 +14,39 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 a87a14d3de3808fb587c982698050d6a07294eda Build.PL
-SHA1 c33cda7778827b692af8e1621d36b0d6875c0887 Changes
-SHA1 62d06b294b7574c26a3df35c51f32885f9380cce LICENSE
-SHA1 4c0f4b481ae99530e30e938b63bdbe57f200a861 MANIFEST
-SHA1 c98b827eac621893465ba33dad14fb205c6d108e META.json
-SHA1 9df9795bec6cdba741ee05d1699f59150b69a084 META.yml
-SHA1 ea3402276292d77c92b7ed6dbde8ef8df075f4e9 README
-SHA1 4b3d84886f987395c5c25c73357b23544ff92641 inc/Bob.pm
+SHA1 f9dce31dd42409d0c630c384f6f7251c474451fd Build.PL
+SHA1 0b72d4e5f26e5a496a13f7d538e93ba57913d245 Changes
+SHA1 2b3ccb88f716f614f8af721a1c69dba0bcdbbb32 LICENSE
+SHA1 89e9c8094307bcff54b523846ae0cbcd9a903bfa MANIFEST
+SHA1 8f4e677c272a03315c5c4202783ca1d19af4a066 META.json
+SHA1 cfdc8796ac3ec4338d234927c7635d83e68cabcf META.yml
+SHA1 c234b9df8431bde4fa2fe8c518b78bff1c8a1099 README
+SHA1 1117239c120158b15163678a5ca333d1c1309168 inc/Bob.pm
 SHA1 dbe2a7ffbe7f2e3ccbf226052acebd142ad844f7 inc/CPANTesting.pm
-SHA1 374fcca215c5918cd377f01844131cde0eb8906b inc/SubClass.pm
-SHA1 105491c5edc084b5b830131f4eb0f15d8880ff3b lib/Data/Validation.pm
-SHA1 29be3c16386c4756df9ebea7ca8a11cf806ceccf lib/Data/Validation/Constraints.pm
-SHA1 6461d321ce03ff0498ad19716c3016f28118a92b lib/Data/Validation/Constraints/Date.pm
-SHA1 74444037eb3b8c4302bf957351d918e6e631aa01 lib/Data/Validation/Constraints/Email.pm
-SHA1 243264a17c654d87cfd03b6fe80dc8889d7de5f1 lib/Data/Validation/Constraints/Password.pm
-SHA1 76e6df915174e3d72126f5abac5f36170f535a91 lib/Data/Validation/Constraints/Path.pm
-SHA1 9a808e9abd14cc7e5a4858a92641075cfbc1fbbe lib/Data/Validation/Constraints/Postcode.pm
-SHA1 ab8f5d439a26cad9f97a0ce45d87ab09a6119cba lib/Data/Validation/Constraints/URL.pm
-SHA1 4935c930dcc4e2bacdca004743c223ad4100d066 lib/Data/Validation/Filters.pm
-SHA1 e99f0f60ce250a0dd2502e9794596b601e98d2d7 lib/Data/Validation/Utils.pm
-SHA1 b62994614a3de1505feb45d6fb04c9e66989fd8a t/01always_pass.t
-SHA1 36f946ee6523705ecf52bf4dd65614e6e8cc021a t/02pod.t
-SHA1 6db762d563d3674152cc2b3a86987f0b402150c8 t/07podspelling.t
-SHA1 5586b6df2e07d4065d60dc1cd61e733d08563148 t/10base.t
+SHA1 32d0d60cba78d86b9c2cc6ce3b511c0fbe6e0b91 inc/SubClass.pm
+SHA1 f2a1992da21e86520d86fc7ccd663df286679db7 lib/Data/Validation.pm
+SHA1 5681485cd212af1167d690cd228376905da73970 lib/Data/Validation/Constraints.pm
+SHA1 26d2008be6a432e782ca9c3a51547c9532721d6d lib/Data/Validation/Constraints/Date.pm
+SHA1 2b647d56a9cdab3b6e11722b9931840ab2cc6c8b lib/Data/Validation/Constraints/Email.pm
+SHA1 d60556c5a2a3ccbd499ff0263bfe04daf549904a lib/Data/Validation/Constraints/Password.pm
+SHA1 cbb59dd5f36fe324d47ad28d162e8daae07e72e1 lib/Data/Validation/Constraints/Path.pm
+SHA1 ba4ca201858d18b893ca73afcf4e85bfe9846faa lib/Data/Validation/Constraints/Postcode.pm
+SHA1 7a8630b1a7ca2833a7e5ac7e1bca1e23d1dd0833 lib/Data/Validation/Constraints/URL.pm
+SHA1 7905a4befdc93a011d4f997209dbe0f91978ccc1 lib/Data/Validation/Filters.pm
+SHA1 33aa84cbe8f758838c021a9d252bf983b6d89a92 lib/Data/Validation/Utils.pm
+SHA1 5b418179c13d5f6c7995c9021ec067a20cab70dc t/01always_pass.t
+SHA1 3619897e55f69b5302bdffa8a0cca9411d577491 t/02pod.t
+SHA1 2f5dc5c33534886b65390d8f22c6c8c252024118 t/06yaml.t
+SHA1 5e386a5e5c205c080b173c21ba583085068e6df7 t/07podspelling.t
+SHA1 5a3732c5b1b6393b1d19926a307708beda28d296 t/10base.t
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.10 (GNU/Linux)
 
-iQEcBAEBAgAGBQJRF9i6AAoJEK492j4Im1Bp4wAH/0O68j/IvyV30W38rTsmCkrX
-2exh9ggXSwdtmAsWUjalpxtHyxcI54+E98gg5NY1ASOTvkcyY0kCgvZrxX/mrI2W
-p2mW26ChZE8+Ej/7ynf8wH1V15RyMtuM1jUIO6GlINQW0z+CRXsMt6kKxq1NhNFQ
-haI0dmBdJsBYaCMYP5pDrcP4K7r4z7jmd9mHbh89m20hwRDMf/VyWekbHHIMsQHw
-PYzGSNzNkVPbwENhyiQwuDEqGL8+1GytCW5JDVA1JPjmfIIIz5/dSmbGv+fXNIi6
-LWqRiZsUIwS7Sd/oqkP1+ZZsd8pz4suXoHIxCp87Dd05ia0b7b4mSvgUjpjzzrM=
-=EWbk
+iQEcBAEBAgAGBQJRbvv3AAoJEK492j4Im1BpgoMIAK0lOKHe0zOo0AgZT6mCljif
+nvptYnVMd8t5uekzv/QhWuuwL+KioTmTPIF3sgnw7FpP+arEgNkaENmEwqHyGDm5
+J0pcOivk3IQVcDsKUblOrbqtNuo8kMRXQS4hLnOV8dZoQ9kZJ/ate8sGYS+9w52q
+6Td2QQj//tVyqoWo/3rL0aGbB36wNSD70wnAW9K4ewL3D9/LI0FtGDcuamoouX/I
+E0w6CUbmk56sFlDMjcqEAJo9sNCeUcVJUnbVc57tVx/6G8WlhBAbDEAO7XbUEYpD
+apk2cJRnLw+J4YX+lAJeWLIQlUZp405d8PukX6xc2E042N74GJVN9rsOC1Xg+JI=
+=Criz
 -----END PGP SIGNATURE-----

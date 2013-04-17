@@ -2,7 +2,7 @@ Name
     Data::Validation - Filter and check data values
 
 Version
-    0.9.$Rev: 176 $
+    0.10.$Rev: 179 $
 
 Synopsis
        use Data::Validation;
@@ -117,7 +117,7 @@ Bugs and Limitations
     address below. Patches are welcome
 
 Author
-    Peter Flanigan, "<Support at RoxSoft.co.uk>"
+    Peter Flanigan, "<pjfl@cpan.org>"
 
 License and Copyright
     Copyright (c) 2013 Peter Flanigan. All rights reserved

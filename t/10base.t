@@ -1,8 +1,8 @@
-# @(#)$Id: 10base.t 176 2013-02-10 17:27:58Z pjf $
+# @(#)$Id: 10base.t 179 2013-04-17 19:44:27Z pjf $
 
 use strict;
 use warnings;
-use version; our $VERSION = qv( sprintf '0.9.%d', q$Rev: 176 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.10.%d', q$Rev: 179 $ =~ /\d+/gmx );
 use File::Spec::Functions;
 use FindBin qw( $Bin );
 use lib catdir( $Bin, updir, q(lib) );
@@ -58,7 +58,8 @@ is test_val( $f, q(test), q(this is text) ), q(this is text), 'Simple text';
 SKIP: {
    $f->{fields}->{test}->{validate} = q(isValidHostname);
 
-   (test_val( $f, q(test), q(does_not_exist)     ) eq q(eValidHostname) and
+   (test_val( $f, q(test), q(google.com)         ) eq q(eValidHostname) and
+    test_val( $f, q(test), q(does_not_exist)     ) eq q(eValidHostname) and
     test_val( $f, q(test), q(does_not_exist.com) ) eq q(eValidHostname) and
     test_val( $f, q(test), q(does.not.exist.com) ) eq q(eValidHostname) and
     test_val( $f, q(test), q(does.not.exist.example.com) ) eq q(eValidHostname))
