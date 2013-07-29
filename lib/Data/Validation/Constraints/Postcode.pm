@@ -1,22 +1,23 @@
+# @(#)$Ident: Postcode.pm 2013-07-29 14:28 pjf ;
+
 package Data::Validation::Constraints::Postcode;
 
-# @(#)$Id: Postcode.pm 179 2013-04-17 19:44:27Z pjf $
+use namespace::sweep;
+use version; our $VERSION = qv( sprintf '0.12.%d', q$Rev: 0 $ =~ /\d+/gmx );
 
-use strict;
-use Moose;
+use Moo;
 
-use version; our $VERSION = qv( sprintf '0.10.%d', q$Rev: 179 $ =~ /\d+/gmx );
+extends q(Data::Validation::Constraints);
 
-extends 'Data::Validation::Constraints';
+around '_validate' => sub {
+   my ($orig, $self, $val) = @_;
 
-override '_validate' => sub {
-   my ($self, $val) = @_;
-   my @patterns   = ( 'AN NAA',  'ANN NAA',  'AAN NAA', 'AANN NAA',
-                      'ANA NAA', 'AANA NAA', 'AAA NAA', );
+   my @patterns = ( 'AN NAA',  'ANN NAA',  'AAN NAA', 'AANN NAA',
+                    'ANA NAA', 'AANA NAA', 'AAA NAA', );
 
-   foreach (@patterns) { s{ A }{[A-Z]}gmx; s{ N }{\\d}gmx; s{ [ ] }{\\s+}gmx; }
+   for (@patterns) { s{ A }{[A-Z]}gmx; s{ N }{\\d}gmx; s{ [ ] }{\\s+}gmx; }
 
-   my $pattern = join q(|), @patterns;
+   my $pattern = join '|', @patterns;
 
    return $val =~ m{ \A (?:$pattern) \z }mox ? 1 : 0;
 };

@@ -1,8 +1,8 @@
-# @(#)$Id: 07podspelling.t 179 2013-04-17 19:44:27Z pjf $
+# @(#)Ident: 07podspelling.t 2013-07-29 15:19 pjf ;
 
 use strict;
 use warnings;
-use version; our $VERSION = qv( sprintf '0.10.%d', q$Rev: 179 $ =~ /\d+/gmx );
+use version; our $VERSION = qv( sprintf '0.12.%d', q$Rev: 0 $ =~ /\d+/gmx );
 use File::Spec::Functions qw(catdir catfile updir);
 use FindBin qw( $Bin );
 use lib catdir( $Bin, updir, q(lib) );
@@ -11,8 +11,8 @@ use English qw(-no_match_vars);
 use Test::More;
 
 BEGIN {
-   ! -e catfile( $Bin, updir, q(MANIFEST.SKIP) )
-      and plan skip_all => 'POD spelling test only for developers';
+   $ENV{AUTHOR_TESTING}
+      or plan skip_all => 'POD spelling test only for developers';
 }
 
 eval "use Test::Spelling";
@@ -40,6 +40,7 @@ done_testing();
 
 __DATA__
 flanigan
+peter
 filterEscapeHTML
 filterLowerCase
 filterNonNumeric
@@ -59,4 +60,5 @@ isValidIdentifier
 isValidInteger
 isValidLength
 isValidNumber
+opendns
 rebless

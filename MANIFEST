@@ -20,6 +20,7 @@ META.yml
 README
 t/01always_pass.t
 t/02pod.t
+t/05kwalitee.t
 t/06yaml.t
 t/07podspelling.t
 t/10base.t

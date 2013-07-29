@@ -1,8 +1,8 @@
 Name
-    Data::Validation - Filter and check data values
+    Data::Validation - Filter and validate data values
 
 Version
-    0.10.$Rev: 179 $
+    Describes version v0.12.$Rev: 0 $ of Data::Validation
 
 Synopsis
        use Data::Validation;
@@ -100,11 +100,9 @@ Diagnostics
     None
 
 Dependencies
-    Moose
-    Data::Validation::Constraints
-    Data::Validation::Filters
-    List::Util
+    Moo
     Try::Tiny
+    Unexpected::Types
 
 Incompatibilities
     OpenDNS. I have received reports that hosts configured to use OpenDNS
