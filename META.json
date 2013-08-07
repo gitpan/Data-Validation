@@ -25,9 +25,9 @@
       "build" : {
          "requires" : {
             "Class::Null" : "1.09",
-            "Exception::Class" : "1.23",
             "Module::Build" : "0.4004",
             "Test::Pod" : "1.26",
+            "Unexpected" : "v0.6.0",
             "version" : "0.88"
          }
       },
@@ -58,7 +58,7 @@
    "provides" : {
       "Data::Validation" : {
          "file" : "lib/Data/Validation.pm",
-         "version" : "v0.13.1"
+         "version" : "v0.13.3"
       },
       "Data::Validation::Constraints" : {
          "file" : "lib/Data/Validation/Constraints.pm",
@@ -107,5 +107,5 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "v0.13.1"
+   "version" : "v0.13.3"
 }
