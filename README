@@ -2,7 +2,7 @@ Name
     Data::Validation - Filter and validate data values
 
 Version
-    Describes version v0.13.$Rev: 4 $ of Data::Validation
+    Describes version v0.13.$Rev: 5 $ of Data::Validation
 
 Synopsis
        use Data::Validation;
