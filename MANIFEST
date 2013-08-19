@@ -1,8 +1,11 @@
 Build.PL
 Changes
-inc/Bob.pm
-inc/CPANTesting.pm
-inc/SubClass.pm
+LICENSE
+MANIFEST
+META.json
+META.yml
+README
+SIGNATURE
 lib/Data/Validation.pm
 lib/Data/Validation/Constraints.pm
 lib/Data/Validation/Constraints/Date.pm
@@ -13,15 +16,9 @@ lib/Data/Validation/Constraints/Postcode.pm
 lib/Data/Validation/Constraints/URL.pm
 lib/Data/Validation/Filters.pm
 lib/Data/Validation/Utils.pm
-LICENSE
-MANIFEST			This list of files
-META.json
-META.yml
-README
 t/01always_pass.t
 t/02pod.t
 t/05kwalitee.t
 t/06yaml.t
 t/07podspelling.t
 t/10base.t
-SIGNATURE    Added here by Module::Build

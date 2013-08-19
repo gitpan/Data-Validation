@@ -14,40 +14,37 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 454225beae41464d8ab6db323814cd2dbf905f6b Build.PL
-SHA1 c4e3dd3f218f97b39d652510438d1b14860624f8 Changes
-SHA1 2b3ccb88f716f614f8af721a1c69dba0bcdbbb32 LICENSE
-SHA1 5a9d2bf150f4214cb640d269eee39d4ae05b3b3a MANIFEST
-SHA1 bbd520cfebe18bf18e6dd3245143a7f814a605f6 META.json
-SHA1 1ff81afa9431e619b56c93ea55b8cbf3b18ba38a META.yml
-SHA1 31d694ecd74f5204e8be4c0e2e390af86d1adeeb README
-SHA1 4508a0e14971d2d023a8948c5c128ae7aa7eb8e4 inc/Bob.pm
-SHA1 78e43d74735ecd05c6b3e059b53a99dc19b39af2 inc/CPANTesting.pm
-SHA1 a9d069f2d73f421974f5b34952d8b7bf41db8008 inc/SubClass.pm
-SHA1 e616376b7f6f1876d4e50ba7adfa97c6b249523c lib/Data/Validation.pm
-SHA1 cd7a7d1329b8737541134c1b7e44881be0354772 lib/Data/Validation/Constraints.pm
-SHA1 ed941bd23f0b389f03a33716bb6102411e99b56a lib/Data/Validation/Constraints/Date.pm
-SHA1 dbf1fbec9ec646367aa1e79b00755f6e309006da lib/Data/Validation/Constraints/Email.pm
-SHA1 bb5f26107527a817133c9bf10639e66cd0bc76b7 lib/Data/Validation/Constraints/Password.pm
-SHA1 311c42cf143b78b72d93310a955e559df04e93ae lib/Data/Validation/Constraints/Path.pm
-SHA1 c549b61e865a32c115c1317f99d7cd41cc76505b lib/Data/Validation/Constraints/Postcode.pm
-SHA1 b06fc7e8300637d42adc6a596524a639b1b23bba lib/Data/Validation/Constraints/URL.pm
-SHA1 92520b31db5bcef9cf4be489df5f95e5e47d2db2 lib/Data/Validation/Filters.pm
-SHA1 187555628d143a7e3a775c8dc93f4bb9d603d168 lib/Data/Validation/Utils.pm
-SHA1 6134f6415a01cfe6b8055ad54b195625dbbd62d4 t/01always_pass.t
-SHA1 4fe75bdac75e249630f0e361b0acd285b36faca9 t/02pod.t
+SHA1 b88bc1ac5bc1e5bd7720445646867d5a032948ed Build.PL
+SHA1 1cff1c845564d4b066d6d039d2d0b0841cd16de3 Changes
+SHA1 8835c6f04f0b79a12fb91025ee72f89d949d1d54 LICENSE
+SHA1 8a9592cdd31b9be63e9006d4505527e85d071bbf MANIFEST
+SHA1 dd661c1abd13b362ee2846a7d62e76a336f33598 META.json
+SHA1 9604b5bed30875343559df836d41353fade43436 META.yml
+SHA1 9ae682a82c04edc790d7149bdeb8d76cb9afaafc README
+SHA1 c4795118fe3f9cdbca23db75e60255e626b9d0cf lib/Data/Validation.pm
+SHA1 5fcc7c51a27f3072520075f2bca3c6fccabe9f1b lib/Data/Validation/Constraints.pm
+SHA1 a22b5f8bac21963a959c42d7e850859934860844 lib/Data/Validation/Constraints/Date.pm
+SHA1 a9ea4a9ba8b71e2db36ee479e6363a72b289445a lib/Data/Validation/Constraints/Email.pm
+SHA1 bf23ab8a9eda0b0484faaac22d3d7379b7206d64 lib/Data/Validation/Constraints/Password.pm
+SHA1 e62847964695d0d9db319d11d6c8425e1b562be6 lib/Data/Validation/Constraints/Path.pm
+SHA1 a07ee2327001e535816e6f334c162eed81170767 lib/Data/Validation/Constraints/Postcode.pm
+SHA1 b8f8678c940deb61b386ece37e57cbc32476b4f3 lib/Data/Validation/Constraints/URL.pm
+SHA1 8a58ffab2f6124f49b6de92934e455a14447d438 lib/Data/Validation/Filters.pm
+SHA1 a1f6788ccda0871d6a335dc5735895f9e755fb1b lib/Data/Validation/Utils.pm
+SHA1 14a470457e68fca75b219146835e3a7521a5dc74 t/01always_pass.t
+SHA1 59cac3aca522f2fdd84b6bdbeae8935e45ba497f t/02pod.t
 SHA1 0eb5c97fe4a7ef3d68a62e5a1c6f5b7958c3e812 t/05kwalitee.t
-SHA1 49c4568f9e38424b5debde570bb886aaf214a81e t/06yaml.t
-SHA1 fc5cffbf2e8f4c4894ea51c38b39ad5d441605e9 t/07podspelling.t
-SHA1 f2bcc5d8c0dfecd347065d929c50f5a7d535793b t/10base.t
+SHA1 71fe3a1556b3dbe238e649fed8327f7f4d83cdf0 t/06yaml.t
+SHA1 317a1f91702cacd2411612d2af193163c4f1df62 t/07podspelling.t
+SHA1 0f31ccc9850de38d6c7f2c9e20fc9bf4b6bb0616 t/10base.t
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.10 (GNU/Linux)
 
-iQEcBAEBAgAGBQJSBtbSAAoJEK492j4Im1BpCIYH/RO4NVSkHwb86X9sm/ndpJZ9
-BUlSjCefYqrmeNA7gZgMrR0iTe2L2ZrqxcCnt+f/SHwyR+IyP1AdoqGaygckpXuT
-YOOkIgjL2LUS/ywsWcLqxHf7acstKTpAMReqXhA67j59Q8wXzj807xwStx8BkvuG
-6s71iSY11mRZwv33lR+CaEI28tQ/qvBrBG5Y8q8Z8+IHdQGZx6IkKKjMMMF+Ql9F
-/6ignCg1VdJa6Q75qBpo1/yOo84cERYyIxej/qfuxrP3GnhMbGgAi5WEfbVMhb+x
-pdc/BDlcjQIS/8WmaiIDegVg4+jeMCcNW/6G7aNlxpra9r84hUvwziBC9/7m5lc=
-=2MjL
+iQEcBAEBAgAGBQJSEhb3AAoJEK492j4Im1BpdfoH/iA38hQ9CkXdgKNIC/xdWtwO
+ScccK54guMoQ011nI4LQb4eS946/+aU9DwfaoT5GZC67tRzo7wFwB9ZRlOI1a3+e
+FyWEkvpemqd9CeFkc+yXY8b4X5zKBt8ArbacY8Ufj7vmUEeH00J/1utwlrdzLLZi
+l564pPoRp8bTX8G9NFeA/1V8RLO5Gq1uUm3nSdV9fweN1KH4wWlPGTJ1+eJ1CCin
+4mhT29mTy5hYO0R6I9n0d2C5g8gKXWuYPNAyvCKpWDZgUIIazD/HwbiH8QdpCwuP
+ZXBL8XfS7ujNmeQyqmA3riwoFOW/9KjvK+4BxsKRwnNvkNffqpGaIs4zzQ9VXn4=
+=hLFx
 -----END PGP SIGNATURE-----
