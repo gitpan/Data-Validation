@@ -1,10 +1,10 @@
 {
    "abstract" : "Filter and validate data values",
    "author" : [
-      "Peter Flanigan <pjfl@cpan.org>"
+      "Peter Flanigan, C<< <pjfl@cpan.org> >>"
    ],
-   "dynamic_config" : "1",
-   "generated_by" : "Dist::Zilla version 4.300033, CPAN::Meta::Converter version 2.120921",
+   "dynamic_config" : 1,
+   "generated_by" : "Dist::Zilla version 5.006, CPAN::Meta::Converter version 2.120921",
    "license" : [
       "perl_5"
    ],
@@ -26,8 +26,6 @@
          "requires" : {
             "Class::Null" : "1.09",
             "Module::Build" : "0.4004",
-            "Test::Pod" : "1.26",
-            "Unexpected" : "v0.6.0",
             "version" : "0.88"
          }
       },
@@ -39,16 +37,17 @@
       },
       "runtime" : {
          "recommends" : {
-            "Class::Usul" : "v0.22.0"
+            "Class::Usul" : "v0.38.0"
          },
          "requires" : {
-            "Class::Load" : "0.18",
             "Email::Valid" : "0.184",
+            "Exporter::Tiny" : "0.026",
             "LWP::UserAgent" : "2.036",
+            "Module::Runtime" : "0.013",
             "Moo" : "1.003000",
             "Regexp::Common" : "2010010201",
             "Try::Tiny" : "0.09",
-            "Unexpected" : "v0.6.0",
+            "Unexpected" : "v0.22.0",
             "namespace::sweep" : "0.006",
             "perl" : "5.010001"
          }
@@ -57,43 +56,51 @@
    "provides" : {
       "Data::Validation" : {
          "file" : "lib/Data/Validation.pm",
-         "version" : "v0.14.1"
+         "version" : "v0.15.1"
+      },
+      "Data::Validation::Constants" : {
+         "file" : "lib/Data/Validation/Constants.pm",
+         "version" : "v0.15.1"
       },
       "Data::Validation::Constraints" : {
          "file" : "lib/Data/Validation/Constraints.pm",
-         "version" : "v0.14.1"
+         "version" : "v0.15.1"
       },
       "Data::Validation::Constraints::Date" : {
          "file" : "lib/Data/Validation/Constraints/Date.pm",
-         "version" : "v0.14.1"
+         "version" : "v0.15.1"
       },
       "Data::Validation::Constraints::Email" : {
          "file" : "lib/Data/Validation/Constraints/Email.pm",
-         "version" : "v0.14.1"
+         "version" : "v0.15.1"
       },
       "Data::Validation::Constraints::Password" : {
          "file" : "lib/Data/Validation/Constraints/Password.pm",
-         "version" : "v0.14.1"
+         "version" : "v0.15.1"
       },
       "Data::Validation::Constraints::Path" : {
          "file" : "lib/Data/Validation/Constraints/Path.pm",
-         "version" : "v0.14.1"
+         "version" : "v0.15.1"
       },
       "Data::Validation::Constraints::Postcode" : {
          "file" : "lib/Data/Validation/Constraints/Postcode.pm",
-         "version" : "v0.14.1"
+         "version" : "v0.15.1"
       },
       "Data::Validation::Constraints::URL" : {
          "file" : "lib/Data/Validation/Constraints/URL.pm",
-         "version" : "v0.14.1"
+         "version" : "v0.15.1"
+      },
+      "Data::Validation::Exception" : {
+         "file" : "lib/Data/Validation/Exception.pm",
+         "version" : "v0.15.1"
       },
       "Data::Validation::Filters" : {
          "file" : "lib/Data/Validation/Filters.pm",
-         "version" : "v0.14.1"
+         "version" : "v0.15.1"
       },
       "Data::Validation::Utils" : {
          "file" : "lib/Data/Validation/Utils.pm",
-         "version" : "v0.14.1"
+         "version" : "v0.15.1"
       }
    },
    "release_status" : "stable",
@@ -107,6 +114,6 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "0.14.1"
+   "version" : "0.15.1"
 }
 

@@ -7,6 +7,7 @@ META.yml
 README
 SIGNATURE
 lib/Data/Validation.pm
+lib/Data/Validation/Constants.pm
 lib/Data/Validation/Constraints.pm
 lib/Data/Validation/Constraints/Date.pm
 lib/Data/Validation/Constraints/Email.pm
@@ -14,6 +15,7 @@ lib/Data/Validation/Constraints/Password.pm
 lib/Data/Validation/Constraints/Path.pm
 lib/Data/Validation/Constraints/Postcode.pm
 lib/Data/Validation/Constraints/URL.pm
+lib/Data/Validation/Exception.pm
 lib/Data/Validation/Filters.pm
 lib/Data/Validation/Utils.pm
 t/01always_pass.t

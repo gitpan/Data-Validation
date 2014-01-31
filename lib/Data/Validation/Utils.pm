@@ -1,24 +1,19 @@
-# @(#)$Ident: Utils.pm 2013-07-29 15:52 pjf ;
-
 package Data::Validation::Utils;
 
 use namespace::sweep;
-use version; our $VERSION = qv( sprintf '0.14.%d', q$Rev: 1 $ =~ /\d+/gmx );
 
-use Class::Load       qw( is_class_loaded load_class);
-use English           qw( -no_match_vars );
-use Scalar::Util      qw( blessed );
+use Data::Validation::Constants;
+use English               qw( -no_match_vars );
+use Module::Runtime       qw( require_module );
+use Scalar::Util          qw( blessed );
 use Try::Tiny;
-use Unexpected::Types qw( Str );
+use Unexpected::Functions qw( is_class_loaded );
+use Unexpected::Types     qw( Str );
 use Moo::Role;
 
-has 'exception' => is => 'ro', isa => sub {
-   $_[ 0 ] and $_[ 0 ]->can( 'throw' ) or die 'Exception class cannot throw' },
-   required     => 1;
+has 'method'  => is => 'ro', isa => Str, required => 1;
 
-has 'method'    => is => 'ro', isa => Str, required => 1;
-
-has 'pattern'   => is => 'rw', isa => Str;
+has 'pattern' => is => 'rw', isa => Str;
 
 sub _load_class {
    my ($self, $prefix, $class) = @_; $class =~ s{ \A $prefix }{}mx;
@@ -34,19 +29,16 @@ sub _load_class {
 sub _ensure_class_loaded {
    my ($self, $class, $opts) = @_; $opts ||= {};
 
-   my $package_defined = sub { is_class_loaded( $class ) };
+   not $opts->{ignore_loaded} and is_class_loaded( $class ) and return 1;
 
-   not $opts->{ignore_loaded} and $package_defined->() and return 1;
+   try   { require_module( $class ) }
+   catch { EXCEPTION_CLASS->throw( $_ ) };
 
-   try   { load_class( $class ) }
-   catch { $self->exception->throw( $_ ) };
+   is_class_loaded( $class ) or EXCEPTION_CLASS->throw
+      ( error => 'Class [_1] loaded but package undefined',
+        args  => [ $class ] );
 
-   $package_defined->() and return 1;
-
-   my $e = 'Class [_1] loaded but package undefined';
-
-   $self->exception->throw( error => $e, args => [ $class ] );
-   return;
+   return 1;
 }
 
 1;
@@ -57,11 +49,11 @@ __END__
 
 =head1 Name
 
-Data::Validation::Utils - Utility methods
+Data::Validation::Utils - Utility methods for constraints and filters
 
 =head1 Version
 
-Describes version v0.14.$Rev: 1 $ of L<Data::Validation::Utils>
+Describes version v0.15.$Rev: 1 $ of L<Data::Validation::Utils>
 
 =head1 Synopsis
 
@@ -79,10 +71,6 @@ L<Data::Validation::Constraints> and L<Data::Validation::Filters>
 Defines the following attributes:
 
 =over 3
-
-=item exception
-
-Class capable of throwing an exception
 
 =item method
 
@@ -114,13 +102,11 @@ None
 
 =over 3
 
-=item L<Class::Load>
-
-=item L<Moo::Role>
+=item L<Module::Runtime>
 
 =item L<Try::Tiny>
 
-=item L<Unexpected::Types>
+=item L<Unexpected>
 
 =back
 
