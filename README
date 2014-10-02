@@ -4,7 +4,7 @@ Name
 
 Version
 
-    Describes version v0.15.$Rev: 1 $ of Data::Validation
+    Describes version v0.16.$Rev: 1 $ of Data::Validation
 
 Synopsis
 
@@ -66,6 +66,11 @@ Configuration and Environment
 
       Hash containing filter attributes. Keys are the $id values passed to
       "check_field". See Data::Validation::Filters
+
+    level
+
+      Positive integer defaults to 1. Used to select the stack frame from
+      which to throw the check_field exception
 
     operators
 

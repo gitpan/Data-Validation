@@ -1,6 +1,6 @@
 package Data::Validation::Utils;
 
-use namespace::sweep;
+use namespace::autoclean;
 
 use Data::Validation::Constants;
 use English               qw( -no_match_vars );
@@ -50,10 +50,6 @@ __END__
 =head1 Name
 
 Data::Validation::Utils - Utility methods for constraints and filters
-
-=head1 Version
-
-Describes version v0.15.$Rev: 1 $ of L<Data::Validation::Utils>
 
 =head1 Synopsis
 

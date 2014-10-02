@@ -21,15 +21,15 @@ my $prereqs  = {
     'Class::Usul' => 'v0.38.0'
   },
   'requires' => {
-    'Email::Valid' => '0.184',
-    'Exporter::Tiny' => '0.026',
+    'Email::Valid' => '1.194',
+    'Exporter::Tiny' => '0.041_02',
     'LWP::UserAgent' => '2.036',
-    'Module::Runtime' => '0.013',
-    'Moo' => '1.003000',
-    'Regexp::Common' => '2010010201',
-    'Try::Tiny' => '0.09',
-    'Unexpected' => 'v0.22.0',
-    'namespace::sweep' => '0.006',
+    'Module::Runtime' => '0.014',
+    'Moo' => '1.006000',
+    'Regexp::Common' => '2013031301',
+    'Try::Tiny' => '0.22',
+    'Unexpected' => 'v0.33.0',
+    'namespace::autoclean' => '0.19',
     'perl' => '5.010001'
   },
 };

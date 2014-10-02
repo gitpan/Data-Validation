@@ -1,6 +1,6 @@
 package Data::Validation::Filters;
 
-use namespace::sweep;
+use namespace::autoclean;
 
 use Moo;
 use Data::Validation::Constants;
@@ -86,10 +86,6 @@ __END__
 =head1 Name
 
 Data::Validation::Filters - Filter data values
-
-=head1 Version
-
-Describes version v0.15.$Rev: 1 $ of L<Data::Validation::Filters>
 
 =head1 Synopsis
 
@@ -188,7 +184,7 @@ Patches are welcome
 
 =head1 Author
 
-Peter Flanigan, C<< <Support at RoxSoft.co.uk> >>
+Peter Flanigan, C<< <pjfl@cpan.org> >>
 
 =head1 License and Copyright
 
