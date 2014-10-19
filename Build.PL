@@ -20,18 +20,18 @@ my $prereqs  = {
     'version' => '0.88'
   },
   'recommends' => {
-    'Class::Usul' => 'v0.38.0'
+    'Class::Usul' => 'v0.47.0'
   },
   'requires' => {
     'Email::Valid' => '1.194',
-    'Exporter::Tiny' => '0.041_02',
+    'Exporter::Tiny' => '0.042',
     'LWP::UserAgent' => '2.036',
     'Module::Runtime' => '0.014',
     'Moo' => '1.006000',
     'Regexp::Common' => '2013031301',
     'Try::Tiny' => '0.22',
-    'Unexpected' => 'v0.33.0',
-    'namespace::autoclean' => '0.19',
+    'Unexpected' => 'v0.34.0',
+    'namespace::autoclean' => '0.20',
     'perl' => '5.010001'
   },
 };

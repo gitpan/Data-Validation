@@ -14,14 +14,14 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 0710a4de2d1c467e05aa1cb68dc0f315f1e7f10a Build.PL
-SHA1 3d9f8e875c8e7910b1549a0bd3a79e2e36583565 Changes
+SHA1 576ee64a6e400f5f5b650493d854244f169b0c3f Build.PL
+SHA1 3a74e94ab694f9fb5ad0b01b2f8b1527ca3f185b Changes
 SHA1 ef384398168a024221a4af017109f5873b388908 LICENSE
 SHA1 9ad7898f7fc6bf4d5ea64423ab3bd9e73fa0de8f MANIFEST
-SHA1 e16a1e043e4a499717adf660f93f16a019bf9850 META.json
-SHA1 2c1d1c2996fa042ebdc55bfadba35067ffbefebf META.yml
-SHA1 ba32af7e42a03dae9561559a5b6d6c54f1766de7 README
-SHA1 f8c82058d93ef254891c113486af547107889345 lib/Data/Validation.pm
+SHA1 92a90692978f47ee11e69b354580c67d52006cc3 META.json
+SHA1 d630e65fbc475e3faf3de488ccf04a08318f85ea META.yml
+SHA1 8989f77c6f31a2a9d9a7dce83ef339d5b01fafd6 README
+SHA1 2fb3409a53996e02e5346f3a642ab31c34c0975c lib/Data/Validation.pm
 SHA1 2197deed3b3d846726f227bf15c89dd1756ff050 lib/Data/Validation/Constants.pm
 SHA1 792499d495e1cc1d72536c620310e90b5d0bd0b0 lib/Data/Validation/Constraints.pm
 SHA1 0450cfdba9a19de2250f8d71fd061b2a2b0f40a9 lib/Data/Validation/Constraints/Date.pm
@@ -29,7 +29,7 @@ SHA1 dca7f714bc8e64ddf9d317b87025bf1ac57350c7 lib/Data/Validation/Constraints/Em
 SHA1 df1879ad9bc6cafd60074863f1af4f481fe8c58c lib/Data/Validation/Constraints/Password.pm
 SHA1 ceacd944d394ffb0c3e339afad9be946fde030b4 lib/Data/Validation/Constraints/Path.pm
 SHA1 7529f72b9e66f51986d5d208bdea4d0b6485574b lib/Data/Validation/Constraints/Postcode.pm
-SHA1 2471a6064e05ac1de031fa253a9c723d0d92b106 lib/Data/Validation/Constraints/URL.pm
+SHA1 03d0324a24b15a86d2975a26ec4265a4f828ba72 lib/Data/Validation/Constraints/URL.pm
 SHA1 807e054a57065583f25b3c08508e7a8a112fb86a lib/Data/Validation/Exception.pm
 SHA1 ed5a34cecea7003bf5b6e97039bc934d17c39251 lib/Data/Validation/Filters.pm
 SHA1 cf4516ee66f3d269133cb94fc6b47aaeca1dfcb6 lib/Data/Validation/Utils.pm
@@ -38,15 +38,15 @@ SHA1 427b1a5820b3d6bc52044b99c999e458eba7d6dc t/02pod.t
 SHA1 b0001e6e684dbe198bfac16ac9504f2104d98962 t/05kwalitee.t
 SHA1 8b1ef2c2000dda84911be6a6bf76d4de88a4d4dc t/06yaml.t
 SHA1 f8fe0ff9682d2abcaba35047705be5844bb54145 t/07podspelling.t
-SHA1 5fce61d8835410d5e14989cdefd8abe58fbe6bd6 t/10base.t
+SHA1 250bdb7ce346066e6019833a6998207aafcee710 t/10base.t
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.12 (GNU/Linux)
 
-iQEcBAEBAgAGBQJULu4CAAoJEK492j4Im1BpTaQH/33PHvyNWWP4Ds7PwKj7Cmxe
-14PfDXgjdJFDIyokrxiZNGOvicfLzFXBeV7OpiOeG35y/HQTFHpoIillhZqqXnKT
-+GekJgdkFowXsQbf/biavwKNjbwyZZdRlFaLTBlZwfWWN54F8xbIUyCZD1K1kFdh
-PsrmIUc6imcsaYYGWLWx+kn75j8TkNqSD1MEqcU1oNgenNtMmywTnUsgdeI4F4dG
-DyFXqumD6yMzhHYQ8FY227ASMM2K52CvcsrleKaJYdQk/nDlqf4CUEzdKlYPq32N
-qxCR1MiQHH/ySLlTRQGXZnamRjyECbeCpSsHAjvyuyYJAXLr5HZYOVrUltzkxOc=
-=gIQr
+iQEcBAEBAgAGBQJURBGTAAoJEK492j4Im1BpPJoH/A7wPHN5rEt+zRxWl7Z7o/s5
+R2LI3T1ijEOv98neJSSgAN+ytAfoGRBy6d//FcGPTo08mDvAILnXcEDJYMF7fdAr
+tMlgbg5rY1tK2fJjB9tUavY5l1pi7L8IW6bj12aKS+jiogJAXoVXM/GpSw9DDUnB
+Gi2A4CWM7ObdblQQfDl8IkfWo3UkLW+C8hvbo/dpJsc6bqK06Fcc77EAzFABjdA4
+kFQsUXmpUXVJytQwyUguYhKrv1jBV54/0sIAaon3rRhMeoWMA8GivN2RtgCvCMm6
+jta1nGe5pn9Q8bUNKX2q869LISGV8le+lSoTrz1wBiWcMOnTXOm0rKdTX/kjXks=
+=pS/U
 -----END PGP SIGNATURE-----
